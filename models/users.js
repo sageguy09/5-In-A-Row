@@ -3,7 +3,7 @@
  */
 
 const mongoose = require('./connection.js')
-
+const ObjectId = mongoose.Types.ObjectId
 /* 
  * model schema 
  */
@@ -22,8 +22,15 @@ const usersSchema = new mongoose.Schema({
     type: String
   },
   location: {
-    type: String
-  }
+    type: String,
+    default: 'Earth'
+  },
+  games: [
+    {
+      type: ObjectId,
+      default: undefined
+    }
+  ]
 })
 
 /*
@@ -77,3 +84,4 @@ module.exports = {
   updateUser,
   getHelloWorldString
 }
+
