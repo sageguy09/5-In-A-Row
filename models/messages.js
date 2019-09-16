@@ -49,7 +49,7 @@ const MessageCollection = mongoose.model('Messages', messageSchema)
 /* Step 4
  * model functions
  */
-function getHelloWorldString() {
+function MessageGetHelloWorldString() {
   return 'hello world'
 }
 
@@ -90,5 +90,5 @@ module.exports = {
   getAllMessages,
   getSingleMessage,
   updateMessage,
-  getHelloWorldString
+  MessageGetHelloWorldString
 }

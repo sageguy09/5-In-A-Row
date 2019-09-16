@@ -41,7 +41,7 @@ const UserCollection = mongoose.model('Users', usersSchema)
 /* Step 4
  * model functions
  */
-function getHelloWorldString() {
+function UserGetHelloWorldString() {
   return 'hello world'
 }
 
@@ -82,6 +82,6 @@ module.exports = {
   getAllUsers,
   getSingleUser,
   updateUser,
-  getHelloWorldString
+  UserGetHelloWorldString
 }
 
