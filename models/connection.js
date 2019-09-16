@@ -4,12 +4,9 @@
 const mongoose = require('mongoose');
 
 /* Step 1.
- *
- * TODO: replace <db-name> with the name of your mongo database. 
- * This will need to change for every new project you create.
- *
+ * set db name for mongoose/mongo
  */
-const connectionString = process.env.MONGODB_URI || "mongodb://localhost/<db-name>";
+const connectionString = process.env.MONGODB_URI || "mongodb://localhost/fir_game_db";
 
 
 /* Step 2
@@ -24,10 +21,7 @@ mongoose.connect(connectionString, { useNewUrlParser: true})
   });
 
 
-/* Export the mongoose object.
- *
- * This will allow us to use the same connection to our DB
- * across our different controllers.
- *
+/* 
+ * Export the mongoose object.
  */
 module.exports = mongoose
