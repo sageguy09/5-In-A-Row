@@ -38,7 +38,7 @@ gamelogSchema.pre('save', function(next){
 /*
  * collection APIs
  */
-const MsgLogCollection = mongoose.model('Logs',  gamelogSchema)
+const LogMsgCollection = mongoose.model('Logs',  gamelogSchema)
 
 /* Step 4
  * model functions
@@ -49,29 +49,29 @@ function logMsgGetHelloWorldString() {
 
 
 const createLogMsg = (logMsg) => {
-  return MsgLogCollecion.create({
+  return LogMsgCollection.create({
        logTxt: (logMsg)
    })
 }
 
 
 const getAllLogMsgs = () => {
-   return MsgLogCollection.find();
+   return LogMsgCollection.find();
    }
-const getSingleLogMsg = (msgLogId) => {
-   return MsgLogCollection.findById(msgLogId);
+const getSingleLogMsg = (logMsgId) => {
+   return LogMsgCollection.findById(logMsgId);
 }
 
-const updateLogMsg = (msgLogId, logMsg) => {
-   return MsgLogCollection.findByIdAndUpdate(msgLogId, logMsg, {new:true});
+const updateLogMsg = (logMsgId, logMsg) => {
+   return LogMsgCollection.findByIdAndUpdate(logMsgId, logMsg, {new:true});
 } 
 
 const addLogMsg = (logMsg) => {
-   return MsgLogCollection.insertMany(logMsg);
+   return LogMsgCollection.insertMany(logMsg);
 }
 
-const deleteLogMsg = (msgLogId) => {
-   return MsgLogCollection.findByIdAndDelete(msgLogId);
+const deleteLogMsg = (logMsgId) => {
+   return LogMsgCollection.findByIdAndDelete(logMsgId);
 }
 
 /* Step 5
