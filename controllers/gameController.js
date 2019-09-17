@@ -17,11 +17,11 @@ const gameRouter = express.Router()
  * Request handlers
  */
 
-gameRouter.get('/', (req, res) => {
+gameRouter.get('/gameloghello', (req, res) => {
   res.send(gameLogApi.logMsgGetHelloWorldString())
 })
 
-gameRouter.get('/', (req, res) => {
+gameRouter.get('/messagehello', (req, res) => {
   res.send(messagesApi.messageGetHelloWorldString())
 })
 

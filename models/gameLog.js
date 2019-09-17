@@ -29,7 +29,7 @@ const gamelogSchema = new mongoose.Schema({
 
 
 // Sets the created_at parameter equal to the current time
-user.pre('save', function(next){
+gamelogSchema.pre('save', function(next){
   now = new Date();
   this.created_at = now
   next();

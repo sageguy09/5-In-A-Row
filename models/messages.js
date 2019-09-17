@@ -32,7 +32,7 @@ const messageSchema = new mongoose.Schema({
 
 
 // Sets the created_at parameter equal to the current time
-user.pre('save', function(next){
+messageSchema.pre('save', function(next){
   now = new Date();
   this.updated_at = now;
   if(!this.created_at) {
@@ -49,7 +49,7 @@ const MessageCollection = mongoose.model('Messages', messageSchema)
 /* Step 4
  * model functions
  */
-function MmssageGetHelloWorldString() {
+function messageGetHelloWorldString() {
   return 'hello world'
 }
 

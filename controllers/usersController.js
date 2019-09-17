@@ -15,7 +15,7 @@ const userRouter = express.Router()
  * Request handlers
  */
 
-userRouter.get('/', (req, res) => {
+userRouter.get('/userhello', (req, res) => {
   res.send(userApi.UserGetHelloWorldString())
 })
 
@@ -23,5 +23,5 @@ userRouter.get('/', (req, res) => {
  * Export routers
  */
 module.exports = {
-  userApi
+  userRouter
 }
