@@ -9,6 +9,8 @@ const app = express()
  * import routers from controllers/
  */
 const { templateRouter } = require('./controllers/template.js')
+const { gameRouter } = require('./controllers/gameController.js')
+const { userRouter } = require('./controllers/usersController.js')
 
 
 /* Step 3
@@ -53,6 +55,8 @@ app.set('view engine', 'hbs')
  * the paths defined in the router.
  */
 app.use('/helloworld', templateRouter)
+app.use('/fir', gameRouter)
+app.user('/user', userRouter)
 
 /* Step 5
  *
