@@ -44,6 +44,7 @@ app.use(express.json())
  * image files 
  */
 app.use(express.static(__dirname+"/public"))
+app.use(express.static(`${__dirname}/client/build`))
 
 /* Step 3.b
  *
@@ -66,18 +67,18 @@ app.use('/api/user', userRouter)
  *
  * add catch all route to serve up the built react app for any request not made to our
  * /api/... routes.
- 
+ */
 app.get('/*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)
 })
-*/
+
 /* Step 5
  *
  * Set the port the server is to run on
  *
  * NOTE: keep these lines at the bottom of the file 
  */
-const PORT = process.env.PORT || 3000 
+const PORT = process.env.PORT || 3001
 
 /* Step 6
  *
