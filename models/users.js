@@ -28,7 +28,7 @@ const usersSchema = new mongoose.Schema({
   location: {
     type: String,
     default: 'Earth'
-  },
+  }, 
   games: [
     {
       type: ObjectId,
