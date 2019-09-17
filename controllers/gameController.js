@@ -8,6 +8,8 @@ const express = require('express')
 const gameLogApi = require('../models/gamelogs.js')
 const messagesApi = require('../models/messages.js')
 const gameApi = require('../models/games.js')
+const deckApi = require('../models/decks.js')
+const cardsApi = require('../models/cards.js')
 /* Step 3 
  * Routers
  */
@@ -32,7 +34,7 @@ gameRouter.get('/messagehello', (req, res) => {
 })
 
 
-///////////////asssignment handlers///////////////
+///////////////game handlers///////////////
 //get all games
 gameRouter.get('/games', (req, res) => {
   gameApi.getAllGames().then(games => {
@@ -53,6 +55,18 @@ gameRouter.post('/games/addGame', (req, res) => {
   })
 })
 
+gameRouter.post('/:userId/addGameCol', (req, res) => {
+  gameApi.addGame(req.params.userId).then(newGame => {
+    deckApi.createDeck(newGame).then(newDeck =>{
+      cardsApi.createCardCollection(newGame, newDeck).then(newCards => {
+      res.send(newGame, newDeck, newCards)
+      })
+    })
+  })
+})
+
+
+
 //update a game
 gameRouter.put('/game/:gameId', (req,res) => {
   gameApi.updateGame(req.params.gameId, req.body).then(game => {
@@ -65,6 +79,13 @@ gameRouter.delete('/game/:gameId', (req, res) => {
       res.send(deletedGame)
   })
 })
+
+
+
+
+
+
+
 
 
 ///////////////messages handlers///////////////

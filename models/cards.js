@@ -730,6 +730,13 @@ const addCardCollection = (gameDeckIds) => {
    return cardCollection.insertMany(gameDeckIds);
 }
 
+const createCardCollection = (gameId, deckId) => {
+  return cardCollection.create({
+    gameId: (gameId._id),
+    deckId: deckId._id
+  })
+}
+
 const deleteCardCollection = (cardsId) => {
    return cardCollection.findByIdAndDelete(cardsId);
 }
@@ -741,6 +748,7 @@ const deleteCardCollection = (cardsId) => {
 module.exports = {
   addCardCollection,
   cardsGetHelloWorldString,
+  createCardCollection,
   deleteCardCollection,
   getSingleCardCollection,
   updateCardAssignment
