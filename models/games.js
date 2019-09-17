@@ -8,10 +8,29 @@ const mongoose = require('./connection.js')
  * model schema 
  */
 
+/*
+const deckSchema = new mongoose.Schema({
+
+})
+
+const plyrHandsSchema = new mongoose.Schema({
+
+})
+
+const gameLogs = new mongoose.Schema({
+
+})
+
+const gameMessages = new mongoose.Schema({
+
+})
+*/
+
 const gameSchema = new mongoose.Schema({
   gameName:  
   {
-    type: String
+    type: String,
+    default: "testGame"
   },
   created_at: {
     type: Date, default: Date.now
@@ -64,7 +83,7 @@ const updateGame = (gameId, game) => {
 } 
 
 const addGame = (game) => {
-   return MessageCollection.insertMany(message);
+   return GameCollection.insertMany(game);
 }
 
 const deleteGame = (gameId) => {

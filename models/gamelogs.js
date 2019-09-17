@@ -19,12 +19,12 @@ const gamelogSchema = new mongoose.Schema({
   },
   logTxt:  
   {
-    type: String
+    type: String,
+    default: "testLogMsg"
   },
   created_at: {
     type: Date, default: Date.now
   }
-  
 })
 
 

@@ -10,16 +10,20 @@ const ObjectId = mongoose.Types.ObjectId
 
 const usersSchema = new mongoose.Schema({
   userName: {
-    type: String
+    type: String,
+    default: "testuser"
   },
   password: {
-    type: String
+    type: String,
+    default: "testpass"
   },
   firstName: {
-    type: String
+    type: String,
+    default: "testFirst"
   },
   email: {
-    type: String
+    type: String,
+    default: "test@domain.com"
   },
   location: {
     type: String,

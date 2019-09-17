@@ -88,15 +88,15 @@ gameRouter.post('/messages/addMessage', (req, res) => {
   })
 })
 
-//update a game
-gameRouter.put('/messages/:messageId', (req,res) => {
+//update a message
+gameRouter.put('/message/:messageId', (req,res) => {
   messagesApi.updateMessage(req.params.messageId, req.body).then(message => {
       res.send(message)
   })
 })
-//delete a game
-gameRouter.delete('/messages/:messageId', (req, res) => {
-  messageApi.deleteMessage(req.params.messageId).then(deletedMessage => {
+//delete a message
+gameRouter.delete('/message/:messageId', (req, res) => {
+  messagesApi.deleteMessage(req.params.messageId).then(deletedMessage => {
       res.send(deletedMessage)
   })
 })
@@ -116,7 +116,7 @@ gameRouter.get('/logmsg/:logMsgId', (req, res) => {
 })
 
 //use createLogMsg to create a log message without body params. 
-gameRouter.post('/logmsg/addLogMsg', (req, res) => {
+gameRouter.post('/logmsgs/addLogMsg', (req, res) => {
   gameLogApi.addLogMsg(req.body).then(newLogMsg => {
   res.send(newLogMsg)
   })

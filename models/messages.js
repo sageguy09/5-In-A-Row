@@ -19,7 +19,8 @@ const messageSchema = new mongoose.Schema({
   },
   msgTxt:  
   {
-    type: String
+    type: String,
+    default: "testMsg"
   },
   created_at: {
     type: Date, default: Date.now

@@ -66,11 +66,11 @@ app.use('/api/user', userRouter)
  *
  * add catch all route to serve up the built react app for any request not made to our
  * /api/... routes.
- */
+ 
 app.get('/*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)
 })
-
+*/
 /* Step 5
  *
  * Set the port the server is to run on
