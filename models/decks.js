@@ -9,26 +9,22 @@ const ObjectId = mongoose.Types.ObjectId
  */
 
 
-const gameSchema = new mongoose.Schema({
-  gameName:  
-  {
-    type: String,
-    default: "testGame"
-  },
+const deckSchema = new mongoose.Schema({
   created_at: {
     type: Date, default: Date.now
   },
   updated_at: {
     type: Date, default: Date.now
   },
-  created_by: {
-    type: ObjectId
+  gameId: {
+    type: ObjectId,
+    default: undefined
   }
 })
 
 
 // Sets the created_at parameter equal to the current time
-gameSchema.pre('save', function(next){
+deckSchema.pre('save', function(next){
   now = new Date();
   this.updated_at = now;
   if(!this.created_at) {
@@ -40,8 +36,8 @@ gameSchema.pre('save', function(next){
 /*
  * collection APIs
  */
-const GameCollection = mongoose.model('Game', gameSchema)
-const HandColleciton = mongoose.model('Hand', gameSchema)
+const deckCollection = mongoose.model('Deck', deckSchema)
+
 
 /* Step 4
  * model functions
@@ -50,37 +46,31 @@ function gameGetHelloWorldString() {
   return 'hello world'
 }
 
-
 const createGame = (name) => {
   return GameCollection.create({
        gameName: (name)
    })
 }
-const addPlayerHand = (gameId, playerId) => {
-  HandColleciton.create({
-    assignedPlyr: playerId,
-    assignedGame: gameId
-  })
-}
-
-const getAllGames = () => {
-   return GameCollection.find();
+//////////Deck Model Functions//////////
+const getAllDecks = () => {
+   return DeckCollection.find();
    }
-const getSingleGame = (gameId) => {
-   return GameCollection.findById(gameId);
+const getSingleDeck = (deckId) => {
+   return DeckCollection.findById(deckId);
 }
 
-const updateGame = (gameId, game) => {
-   return GameCollection.findByIdAndUpdate(gameId, game, {new:true});
+const updateDeck = (deckId, deck) => {
+   return DeckCollection.findByIdAndUpdate(deckId, deck, {new:true});
 } 
 
-const addGame = (game) => {
-   return GameCollection.insertMany(game);
+const addDeck = (deck) => {
+   return DeckCollection.insertMany(deck);
 }
 
-const deleteGame = (gameId) => {
-   return GameCollection.findByIdAndDelete(gameId);
+const deleteDeck = (deckId) => {
+   return DeckCollection.findByIdAndDelete(deckId);
 }
+
 
 /* Step 5
  * TODO: exportfunctions
