@@ -19,13 +19,6 @@ const deckSchema = new mongoose.Schema({
   }
 })
 
-
-// Sets the created_at parameter equal to the current time
-deckSchema.pre('save', function(next){
-  now = new Date();
-    this.created_at = now
-});
-
 /*
  * collection API
  */
@@ -41,7 +34,7 @@ function deckGetHelloWorldString() {
 
 const createDeck = (gameId) => {
   return deckCollection.create({
-       gameId: (gameId._id)
+       gameId: gameId
    })
 }
 //////////Deck Model Functions//////////

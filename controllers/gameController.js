@@ -34,7 +34,31 @@ gameRouter.get('/messagehello', (req, res) => {
 })
 
 
-///////////////game handlers///////////////
+///////////////nested game handlers///////////////
+gameRouter.post('/:userId/addGameCol', (req, res) => {
+  gameApi.createGame(req.params.userId, req.body).then(newGame => {
+    deckApi.createDeck(newGame._id).then(newDeck =>{
+      cardsApi.createCardCollection(newGame._id, newDeck._id).then(newCards => {
+      res.send({newGame}, {newDeck}, {newCards})
+      })
+    })
+  })
+})
+
+
+
+//creates game from userId. includes game, deck, card collections
+gameRouter.post('/:userId/addGameCol', (req, res) => {
+  gameApi.createGame(req.params.userId, req.body).then(newGame => {
+    deckApi.createDeck(newGame._id).then(newDeck =>{
+      cardsApi.createCardCollection(newGame._id, newDeck._id).then(newCards => {
+      res.send({newGame}, {newDeck}, {newCards})
+      })
+    })
+  })
+})
+
+
 //get all games
 gameRouter.get('/games', (req, res) => {
   gameApi.getAllGames().then(games => {
@@ -55,18 +79,6 @@ gameRouter.post('/games/addGame', (req, res) => {
   })
 })
 
-gameRouter.post('/:userId/addGameCol', (req, res) => {
-  gameApi.addGame(req.params.userId).then(newGame => {
-    deckApi.createDeck(newGame).then(newDeck =>{
-      cardsApi.createCardCollection(newGame, newDeck).then(newCards => {
-      res.send(newGame, newDeck, newCards)
-      })
-    })
-  })
-})
-
-
-
 //update a game
 gameRouter.put('/game/:gameId', (req,res) => {
   gameApi.updateGame(req.params.gameId, req.body).then(game => {
@@ -81,6 +93,12 @@ gameRouter.delete('/game/:gameId', (req, res) => {
 })
 
 
+///////////////deck handlers///////////////
+gameRouter.post('/deck/:gameId', (req,res) => {
+  deckApi.createDeck(req.params.gameId).then(newDeck => {
+    res.send(newDeck)
+  })
+})
 
 
 

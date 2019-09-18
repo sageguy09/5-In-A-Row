@@ -15,18 +15,16 @@ const gameSchema = new mongoose.Schema({
     type: String,
     default: "testGame"
   },
-  created_at: {
+  createdAt: {
     type: Date, default: Date.now
   },
-  updated_at: {
-    type: Date, default: Date.now
-  },
-  created_by: {
+
+  createdBy: {
     type: ObjectId
   }
 })
 
-
+/*
 // Sets the created_at parameter equal to the current time
 gameSchema.pre('save', function(next){
   now = new Date();
@@ -36,6 +34,7 @@ gameSchema.pre('save', function(next){
   }
   next();
 });
+*/
 
 /*
  * collection APIs
@@ -51,9 +50,10 @@ function gameGetHelloWorldString() {
 }
 
 
-const createGame = (name) => {
+const createGame = (userId, name) => {
   return GameCollection.create({
-       gameName: (name)
+       gameName: name.gameName,
+       createdBy: userId
    })
 }
 const addPlayerHand = (gameId, playerId) => {

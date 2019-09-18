@@ -11,681 +11,702 @@ const ObjectId = mongoose.Types.ObjectId
 
 const cardSchema = new mongoose.Schema({
   card_0: {
-    cardValue: 0,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 0},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },
   card_1: {
-    cardValue: 1,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 1},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_2: {
-    cardValue: 2,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 2},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_3: {
-    cardValue: 3,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 3},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_4: {
-    cardValue: 4,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 4},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_5: {
-    cardValue: 5,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 5},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_6: {
-    cardValue: 6,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 6},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_7: {
-    cardValue: 7,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 7},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_8: {
-    cardValue: 8,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 8},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_9: {
-    cardValue: 9,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 9},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_10: {
-    cardValue: 10,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 10},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_11: {
-    cardValue: 11,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 11},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_12: {
-    cardValue: 12,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 12},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_13: {
-    cardValue: 14,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 13},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
+    assignedTo: {
+      type: ObjectId,
+      default: undefined
+    }
+  },card_14: {
+    cardValue: {type: Number, default: 14},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_15: {
-    cardValue: 15,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 15},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_16: {
-    cardValue: 16,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 16},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_17: {
-    cardValue: 17,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 17},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_18: {
-    cardValue: 18,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 18},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_19: {
-    cardValue: 19,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 19},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_20: {
-    cardValue: 20,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 20},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_21: {
-    cardValue: 21,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 21},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_22: {
-    cardValue: 22,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 22},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_23: {
-    cardValue: 23,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 23},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_24: {
-    cardValue: 24,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 24},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_25: {
-    cardValue: 25,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 25},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_26: {
-    cardValue: 27,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 26},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
+    assignedTo: {
+      type: ObjectId,
+      default: undefined
+    }
+  },card_27: {
+    cardValue: {type: Number, default: 27},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_28: {
-    cardValue: 28,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 28},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_29: {
-    cardValue: 29,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 29},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_30: {
-    cardValue: 30,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 30},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_31: {
-    cardValue: 31,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 31},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_32: {
-    cardValue: 32,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 32},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_33: {
-    cardValue: 33,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 33},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_34: {
-    cardValue: 35,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 34},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
+    assignedTo: {
+      type: ObjectId,
+      default: undefined
+    }
+  },card_35: {
+    cardValue: {type: Number, default: 35},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_36: {
-    cardValue: 36,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 36},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_37: {
-    cardValue: 37,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 37},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_38: {
-    cardValue: 38,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 38},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_39: {
-    cardValue: 39,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 39},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_40: {
-    cardValue: 40,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 40},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_41: {
-    cardValue: 41,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 41},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_42: {
-    cardValue: 42,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 42},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_43: {
-    cardValue: 43,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 43},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_44: {
-    cardValue: 44,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default:44},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_45: {
-    cardValue: 45,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 45},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_46: {
-    cardValue: 46,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 46},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_47: {
-    cardValue: 47,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 47},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_48: {
-    cardValue: 48,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 48},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_49: {
-    cardValue: 49,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 49},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_50: {
-    cardValue: 50,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 50},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_51: {
-    cardValue: 51,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 51},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_52: {
-    cardValue: 52,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 52},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_53: {
-    cardValue: 53,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 53},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_54: {
-    cardValue: 54,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 54},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_55: {
-    cardValue: 55,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 55},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_56: {
-    cardValue: 56,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 56},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_57: {
-    cardValue: 57,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 57},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_58: {
-    cardValue: 58,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 58},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_59: {
-    cardValue: 59,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 59},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_60: {
-    cardValue: 60,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 60},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_61: {
-    cardValue: 61,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 61},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_62: {
-    cardValue: 62,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 62},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_63: {
-    cardValue: 63,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 63},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_64: {
-    cardValue: 64,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 64},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_65: {
-    cardValue: 66,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 66},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_67: {
-    cardValue: 67,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 67},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_68: {
-    cardValue: 68,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 68},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_69: {
-    cardValue: 69,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 69},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_70: {
-    cardValue: 70,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 70},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_71: {
-    cardValue: 71,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 71},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_72: {
-    cardValue: 72,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 72},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_73: {
-    cardValue: 73,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 73},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_74: {
-    cardValue: 74,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 74},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_75: {
-    cardValue: 75,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 75},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_76: {
-    cardValue: 76,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 76},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_77: {
-    cardValue: 77,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 77},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_78: {
-    cardValue: 78,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 78},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_79: {
-    cardValue: 79,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 79},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_80: {
-    cardValue: 80,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 80},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_81: {
-    cardValue: 81,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 81},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_82: {
-    cardValue: 82,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 82},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_83: {
-    cardValue: 83,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 83},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_84: {
-    cardValue: 84,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 84},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_85: {
-    cardValue: 85,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 85},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_86: {
-    cardValue: 86,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 86},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_87: {
-    cardValue: 87,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 87},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_88: {
-    cardValue: 88,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 88},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_89: {
-    cardValue: 89,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 89},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_89: {
-    cardValue: 89,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 90},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_90: {
-    cardValue: 90,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 90},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_91: {
-    cardValue: 91,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 91},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_92: {
-    cardValue: 92,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 92},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_93: {
-    cardValue: 93,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 93},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_94: {
-    cardValue: 94,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 94},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_95: {
-    cardValue: 95,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 95},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_96: {
-    cardValue: 96,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 96},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_97: {
-    cardValue: 97,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 97},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_98: {
-    cardValue: 98,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 98},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
     }
   },card_99: {
-    cardValue: 99,
-    cardImg: "../public/ace_of_spades.png",
+    cardValue: {type: Number, default: 99},
+    cardImg: { type: String, default: "../public/ace_of_spades.png"},
     assignedTo: {
       type: ObjectId,
       default: undefined
@@ -732,8 +753,8 @@ const addCardCollection = (gameDeckIds) => {
 
 const createCardCollection = (gameId, deckId) => {
   return cardCollection.create({
-    gameId: (gameId._id),
-    deckId: deckId._id
+    gameId: (gameId),
+    deckId: (deckId)
   })
 }
 
