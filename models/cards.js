@@ -8,6 +8,23 @@ const ObjectId = mongoose.Types.ObjectId
  * model schema 
  */
 
+ const Card = new mongoose.Schema({
+    cardName: String,
+    cardValue: Number,
+    cardImg: String,
+    assignedTo: {
+      type: ObjectId,
+      default: undefined
+    }
+ })
+
+ const CardCollection = mongoose.model('Card', Card)
+
+ const addCard = (card) => 
+  CardCollection.create(card)
+
+ const getAllCardsAssignedTo = (id) =>
+  CardCollection.find({assignedTo: id})
 
 const cardSchema = new mongoose.Schema({
   cards: {type: Array,
@@ -969,6 +986,8 @@ const createCardCollection = (gameId, deckId) => {
     deckId: (deckId)
   })
 }
+
+
 /*
 const addDeckToAssignedTo = (cardsId, deckId) => {
   cardCollection.findByAndUpdate(cardsId).
