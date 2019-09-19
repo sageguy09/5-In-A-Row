@@ -41,21 +41,12 @@ gameRouter.post('/card/:deckId', (req, res) => {
 })
 
 ///////////////nested game handlers///////////////
-gameRouter.post('/:userId/addGameCol', (req, res) => {
-  gameApi.createGame(req.params.userId, req.body).then(newGame => {
-    deckApi.createDeck(newGame._id).then(newDeck =>{
-      cardsApi.createCardCollection(newGame._id, newDeck._id).then(newCards => {
-      res.send({newGame}, {newDeck}, {newCards})
-      })
-    })
-  })
-})
 
 gameRouter.post('/:userId/addGameColCards', (req, res) => {
   gameApi.createGame(req.params.userId, req.body).then(newGame => {
     deckApi.createDeck(newGame._id).then(newDeck =>{
       cardsApi.addMultipleCards(newGame._id, newDeck._id).then(newCards => {
-      res.send({newGame}, {newDeck}, {newCards})
+      res.send({newGame, newDeck, newCards})
       })
     })
   })

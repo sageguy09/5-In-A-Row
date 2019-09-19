@@ -568,9 +568,6 @@ const addMultipleCards = (gameId, deckId) => {
 
     return card;
   })
-
-  console.log(cs)
-
   return cardCollection.insertMany(cs) 
 }
 /*
