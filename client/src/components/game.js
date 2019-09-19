@@ -1,5 +1,6 @@
 import { Client } from 'boardgame.io/react';
 import { Game } from 'boardgame.io/core';
+import { AI } from 'boardgame.io/ai'
 import TicTacToeBoard from './ticGameBoard';
 
 // return true if 'cells' is in a winning configuration
@@ -37,7 +38,7 @@ function IsDraw(cells) {
 
 
 const TicTacToe = Game({
-    setup : () => ({ cells: Array(9).fill(null) }),
+    setup : () => ({ cells: Array(100).fill(null) }),
 
     moves: {
         clickCell(G, ctx, id) {
@@ -63,7 +64,21 @@ const TicTacToe = Game({
 
 
 
-const TicGame = Client({ game: TicTacToe, board: TicTacToeBoard });
+const TicGame = Client({ 
+    game: TicTacToe, 
+    board: TicTacToeBoard,
+    ai: AI({
+        enumerate: (G, ctx) => {
+            let moves = [];
+            for (let i = 0; i < 100; i++) {
+                if (G.cells[i] === null) {
+                    moves.push({ move:  'clickCell', args: [i] });
+                }
+            }
+            return moves;
+        }
+    }) 
+});
 //disable debug window;
 export default TicGame;
 
