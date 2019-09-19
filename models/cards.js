@@ -10,7 +10,8 @@ const ObjectId = mongoose.Types.ObjectId
 
 
 const cardSchema = new mongoose.Schema({
-  cards: [ 
+  cards: {type: Array,
+          default: [ 
     {
       cardName: {type: String, default: "card_0"},
       cardValue: {type: Number, default: 0},
@@ -920,7 +921,7 @@ const cardSchema = new mongoose.Schema({
       default: undefined
       }
     }
-  ],
+  ]},
   created_at: {
     type: Date, default: Date.now
   },
