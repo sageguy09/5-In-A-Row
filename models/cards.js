@@ -13,22 +13,15 @@ const ObjectId = mongoose.Types.ObjectId
     cardValue: Number,
     cardImg: String,
     assignedTo: ObjectId,
+    gameId: ObjectId,
  })
 
 
-/*
- const addCard = (card) => 
-  CardCollection.create(card)
-
- const getAllCardsAssignedTo = (id) =>
-  CardCollection.find({assignedTo: id})
-*/
 
 /*
- * collection APIs
+ * collection API
  */
 const cardCollection = mongoose.model('Card', cardSchema)
-//const CardCollection = mongoose.model('Card', Card)
 
 /* Step 4
  * model functions
@@ -37,13 +30,11 @@ const cardCollection = mongoose.model('Card', cardSchema)
 function cardsGetHelloWorldString() {
   return 'hello world'
 }
-
 //////////Cards Model Functions//////////
 
 const getSingleCardCollection = (cardsId) => {
    return cardCollection.findById(cardsId);
 } 
-
 const updateCardAssignment = (cardId, playerId) => {
   return cardCollection.findByIdAndUpdate(cardId, playerId, {new:true});
 }
@@ -568,11 +559,12 @@ const cards = [
 }
 ];
 
-const addMultipleCards = (id) => { 
+const addMultipleCards = (gameId, deckId) => { 
 
   const cs = cards.map(card => {
 
-    card.assignedTo = id;
+    card.assignedTo = deckId, 
+    card.gameId = (gameId)
 
     return card;
   })
