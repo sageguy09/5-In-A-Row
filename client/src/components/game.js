@@ -45,7 +45,9 @@ const TicTacToe = Game({
             if (G.cells[id] === null) {
                 G.cells[id] = ctx.currentPlayer;
             }
+        
         },
+        
     },
 
     flow: {
