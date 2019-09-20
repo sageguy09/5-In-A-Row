@@ -1,7 +1,9 @@
-/*function initialState() {
+function initialState() {
     return {
-        deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        burn: [],
+        board: {
+            deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            burn: []
+        },
         player_0: {
             hand: []
         },
@@ -13,22 +15,32 @@
 
 function drawCard(currentState) {
     let playerId= "player_0";
-    let stateDeck="deck"
+    let boardId= "board"
     let currentPlayer = currentState[playerId];
-    let currentDeck = currentState[stateDeck];
-    //add last card from deck 
-    let deckIndex = currentDeck.deck.length - 1; 
-    let hand = [...currentPlayer.deck, currentDeck[deckIndex]];
+    let currentBoard = currentState[boardId]
+    //let currentDeck = currentState[stateDeck];
+    //add last card from board.deck to currentPlayer hand
+    let deckIndex = currentBoard.deck.length - 1; 
+    let hand = [...currentPlayer.hand, currentBoard.deck[deckIndex]];
     //remove the last card in deck
-    let deck 
-
+    let deck = currentBoard.deck.slice(0, deckIndex);
+    let player = {...currentPlayer, hand};
+    let board = {...currentBoard, deck};
+    let state = {...currentState, [playerId]: player, [boardId]: board}
+    return state;
 }
-*/
+
+let state_One = initialState();
+let state_Two = drawCard(state_One);
+console.log('state_One', state_One)
+console.log('state_Two', state_Two)
+/*
 
 
-function initialState() {
+
+function initialState1() {
     return {
-        cards: ["one", "two", "three", "four", "five", "six", "seven", "eight"],
+        cards: ["one", "two", "three", "four", "five", "six"],
         player_0: {
             deck: [0, 1, 2, 3],
             hand: [],
@@ -42,7 +54,7 @@ function initialState() {
     };
 }
 
-function drawCard(currentState) {
+function drawCard1(currentState) {
     // TODO: we'll need a way to know which is the current player 
     // at some point.
     // but for now let's assume it's player 0.
@@ -59,7 +71,8 @@ function drawCard(currentState) {
     return state;
 }
 
-let state_0 = initialState();
-let state_1 = drawCard(state_0);
+let state_0 = initialState1();
+let state_1 = drawCard1(state_0);
 console.log('state_0', state_0);
 console.log('state_1', state_1);
+*/
