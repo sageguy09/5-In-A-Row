@@ -271,5 +271,3 @@ const TicGame = Client({
 //disable debug window;
 export default TicGame;
 
-
-

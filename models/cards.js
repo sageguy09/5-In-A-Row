@@ -48,8 +48,11 @@ const createCardCollection = (gameId, deckId) => {
     deckId: (deckId)
   })
 }
-
- 
+/*
+const deleteGameCards = (gameId) => {
+  return cardCollection.findMa;
+}
+*/
 
 const cards = [
   {
@@ -570,18 +573,8 @@ const addMultipleCards = (gameId, deckId) => {
   })
   return cardCollection.insertMany(cs) 
 }
-/*
-const addDeckToAssignedTo = (cardsId, deckId) => {
-  cardCollection.findByAndUpdate(cardsId).
-  cardCollection.updateMany(
-    { cardName: /card$/ }, { assigneTo: deckId }
-  })
-}
-*/
 
-const deleteCardCollection = (cardsId) => {
-   return cardCollection.findByIdAndDelete(cardsId);
-}
+
 
 
 /* Step 5
@@ -592,7 +585,7 @@ module.exports = {
   addCardCollection,
   cardsGetHelloWorldString,
   createCardCollection,
-  deleteCardCollection,
+
   getSingleCardCollection,
   updateCardAssignment
 }
