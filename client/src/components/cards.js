@@ -2,6 +2,7 @@ function initialState(ctx, state) {
     return state || {
         board: {
             deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            lastPlayed: [],
             burn: []
         },
         player_0: {
@@ -36,12 +37,12 @@ function playCard(currentState, ctx, cardId) {
     let currentBoard = currentState[boardId]
     //find the card in hand and add to burn
     let handIndex = currentPlayer.hand.indexOf(cardId);
-    let burn = [...currentBoard.burn, currentPlayer.hand[handIndex]];
+    let lastPlayed = [...currentBoard.lastPlayed, currentPlayer.hand[handIndex]];
     //remove card from player hand. 
     let hand = [...currentPlayer.hand.slice(0, handIndex), ...currentPlayer.hand.slice(handIndex+1)];
     //construct and return a new state object with changes.
     let player = {...currentPlayer, hand};
-    let board = {...currentBoard, burn};
+    let board = {...currentBoard, lastPlayed};
     let state = {...currentState, [playerId]: player, [boardId]: board};
     return state;
 }
