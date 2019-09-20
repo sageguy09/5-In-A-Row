@@ -1,31 +1,51 @@
-import {initialState, drawCard} from './cards'
+import {initialState, drawCard, playCard} from './cards'
 
-
+const mockCtx = {
+    numPlayers: 2,
+    turn: 0,
+    currentPlayer: "0",
+    currentBoard: "1",
+    playOrder: ["0", "1"]
+};
 let mockState = {
-    board: {
+    board_1: {
         deck: [1, 2, 3, 4, 5],
+        lastPlayed: [],
         burn: []
     },
     player_0: {
         hand: []
     },
-    player_2: {
+    player_1: {
         hand: []
     },
 }
 
 
 test('drawing a card', () => {
-    let state_One = initialState(mockState);
-    let state_Two = drawCard(state_One);
+    let state_One = initialState(mockCtx, mockState);
+    let state_Two = drawCard(state_One, mockCtx);
     //initial  board.deck expectation
-    expect(state_One.board.deck).toEqual([1, 2, 3, 4, 5]);
+    expect(state_One.board_1.deck).toEqual([1, 2, 3, 4, 5]);
     //post drawCard(state_One) board.deck expectation 
-    expect(state_Two.board.deck).toEqual([1, 2, 3, 4]);
+    expect(state_Two.board_1.deck).toEqual([1, 2, 3, 4]);
+    ////drawCard Tests////
     //initial player_0.hand expectation
+    console.log(state_One.player_0.hand)
     expect(state_One.player_0.hand).toEqual([]);
     // post drawCard(state_One) player_0.hand
     expect(state_Two.player_0.hand).toEqual([5]);
+})
+
+test('playing a card', () => {
+    let state_1 = initialState(mockCtx, mockState);
+    let state_2 = drawCard(state_1, mockCtx);
+    let state_3 = playCard(state_2, mockCtx, 5);
+    expect(state_2.board_1.lastPlayed).toEqual([]);
+    expect(state_2.player_0.hand).toEqual([5]);
+    expect(state_3.board_1.lastPlayed).toEqual([5])
+    expect(state_3.player_0.hand).toEqual([])
+
 })
 
 
