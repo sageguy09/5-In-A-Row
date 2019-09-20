@@ -1,33 +1,41 @@
-function initialState(state) {
-    return state || {
-        board: {
-            deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-            burn: []
-        },
-        player_0: {
-            hand: []
-        },
-        player_2: {
-            hand: []
-        },
-    }
+import {initialState, drawCard} from './cards'
+
+
+let mockState = {
+    board: {
+        deck: [1, 2, 3, 4, 5],
+        burn: []
+    },
+    player_0: {
+        hand: []
+    },
+    player_2: {
+        hand: []
+    },
 }
 
-function drawCard(currentState) {
-    let playerId= "player_0";
-    let boardId= "board"
-    let currentPlayer = currentState[playerId];
-    let currentBoard = currentState[boardId]
-    //add last card from board.deck to currentPlayer hand
-    let deckIndex = currentBoard.deck.length - 1; 
-    let hand = [...currentPlayer.hand, currentBoard.deck[deckIndex]];
-    //remove the last card in deck
-    let deck = currentBoard.deck.slice(0, deckIndex);
-    let player = {...currentPlayer, hand};
-    let board = {...currentBoard, deck};
-    let state = {...currentState, [playerId]: player, [boardId]: board}
-    return state;
-}
+
+test('drawing a card', () => {
+    let state_One = initialState(mockState);
+    let state_Two = drawCard(state_One);
+    //initial  board.deck expectation
+    expect(state_One.board.deck).toEqual([1, 2, 3, 4, 5]);
+    //post drawCard(state_One) board.deck expectation 
+    expect(state_Two.board.deck).toEqual([1, 2, 3, 4]);
+    //initial player_0.hand expectation
+    expect(state_One.player_0.hand).toEqual([]);
+    // post drawCard(state_One) player_0.hand
+    expect(state_Two.player_0.hand).toEqual([5]);
+})
+
+
+
+
+
+
+
+
+
 
 /*
 let state_One = initialState();
