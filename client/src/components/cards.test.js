@@ -8,9 +8,8 @@ const mockCtx = {
     playOrder: ["0", "1"]
 };
 let mockState = {
-    board_1: {
+    board: {
         deck: [1, 2, 3, 4, 5],
-        lastPlayed: [],
         burn: []
     },
     player_0: {
@@ -26,9 +25,9 @@ test('drawing a card', () => {
     let state_One = initialState(mockCtx, mockState);
     let state_Two = drawCard(state_One, mockCtx);
     //initial  board.deck expectation
-    expect(state_One.board_1.deck).toEqual([1, 2, 3, 4, 5]);
+    expect(state_One.board.deck).toEqual([1, 2, 3, 4, 5]);
     //post drawCard(state_One) board.deck expectation 
-    expect(state_Two.board_1.deck).toEqual([1, 2, 3, 4]);
+    expect(state_Two.board.deck).toEqual([1, 2, 3, 4]);
     //initial player_0.hand expectation
     console.log(state_One.player_0.hand)
     expect(state_One.player_0.hand).toEqual([]);
@@ -40,12 +39,12 @@ test('playing a card', () => {
     let state_1 = initialState(mockCtx, mockState);
     let state_2 = drawCard(state_1, mockCtx);
     let state_3 = playCard(state_2, mockCtx, 5);
-    //initial board.lastPlayed expectation
-    expect(state_2.board_1.lastPlayed).toEqual([]);
+    //initial board.burn expectation
+    expect(state_2.board.burn).toEqual([]);
     //initial player_0.hand expectation
     expect(state_2.player_0.hand).toEqual([5]);
-    //post playCard board_1.lastPlayed expectation
-    expect(state_3.board_1.lastPlayed).toEqual([5])
+    //post playCard board.burn expectation
+    expect(state_3.board.burn).toEqual([5])
     //post playCard player_0.hand expectation
     expect(state_3.player_0.hand).toEqual([])
 
