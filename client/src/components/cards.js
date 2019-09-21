@@ -1,16 +1,27 @@
+import cardObjs from './cardObjects.json'
+
 function initialState(ctx, state) {
+    let cardId = 0;
+    let cards = [];
+    cardObjs.forEach(card => {
+        cards.push({
+            id: cardId++,
+            cardObj: card
+        })
+    })
     return state || {
         board: {
             deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             burn: []
         },
-        cells: Array(100).fill(null),
         player_0: {
             hand: []
         },
         player_1: {
             hand: []
         },
+        cells: Array(100).fill(null),
+        cards,
     }
 }
 

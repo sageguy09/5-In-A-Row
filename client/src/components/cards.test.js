@@ -1,5 +1,5 @@
 import {initialState, drawCard, playCard} from './cards'
-
+import cardObjs from './cardObjects.json'
 const mockCtx = {
     numPlayers: 2,
     turn: 0,
@@ -7,6 +7,14 @@ const mockCtx = {
     currentBoard: "1",
     playOrder: ["0", "1"]
 };
+let cardId = 0;
+let mockCards = [];
+cardObjs.forEach(card => {
+    mockCards.push({
+        id: cardId++,
+        cardObj: card
+    })
+})
 let mockState = {
     board: {
         deck: [1, 2, 3, 4, 5],
@@ -18,6 +26,8 @@ let mockState = {
     player_1: {
         hand: []
     },
+    cells: Array(100).fill(null),
+    cards: mockCards
 }
 
 
@@ -37,6 +47,7 @@ test('drawing a card', () => {
 
 test('playing a card', () => {
     let state_1 = initialState(mockCtx, mockState);
+    console.log(state_1.cards)
     let state_2 = drawCard(state_1, mockCtx);
     let state_3 = playCard(state_2, mockCtx, 5);
     //initial board.burn expectation
