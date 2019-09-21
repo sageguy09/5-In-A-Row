@@ -4,6 +4,7 @@ function initialState(ctx, state) {
             deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             burn: []
         },
+        cells: Array(100).fill(null),
         player_0: {
             hand: []
         },
@@ -50,6 +51,12 @@ function playCard(currentState, ctx, cardId) {
     let state = {...currentState, [playerId]: player, [boardId]: board};
     return state;
 }
+function clickCell(G, ctx, id) {
+    if (G.cells[id] === null) {
+        G.cells[id] = ctx.currentPlayer;
+    }
+
+}
 function getCurrentPlayer(state, ctx) {
     let playerId = "player_" + ctx.currentPlayer;
     let currentPlayer = state[playerId];
@@ -81,7 +88,7 @@ const ImmutableArray = {
     }
 };
 
-export {initialState, drawCard, playCard}
+export {initialState, drawCard, playCard, clickCell}
 
 
 
