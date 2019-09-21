@@ -2,7 +2,6 @@ function initialState(ctx, state) {
     return state || {
         board: {
             deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-            lastPlayed: [],
             burn: []
         },
         player_0: {
@@ -36,15 +35,18 @@ function playCard(currentState, ctx, cardId) {
     let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
     let boardId="board"
     let currentBoard = currentState[boardId]
-    //find the card in hand and add to burn
+    //find the card in hand, add hand.card to  burn
     let handIndex = currentPlayer.hand.indexOf(cardId);
-    //let lastPlayed = [...currentBoard.lastPlayed, currentPlayer.hand[handIndex]];
-    let lastPlayed = ImmutableArray.append(currentBoard.lastPlayed, currentPlayer.hand[handIndex])
+    let burn = ImmutableArray.append(currentBoard.burn, currentPlayer.hand[handIndex])
     //remove card from player hand. 
+    //let burnIndex = (burn.length-1)
+    //let lastPlayed = ImmutableArray.append(currentBoard.lastPlayed, burn[burnIndex])
+    //let lastPlayedIndex = (lastPlayed[0])
+    //let removeLastPlayed = ImmutableArray.removeAt(lastPlayed, lastPlayedIndex)
     let hand = ImmutableArray.removeAt(currentPlayer.hand, handIndex)
     //construct and return a new state object with changes.
     let player = {...currentPlayer, hand};
-    let board = {...currentBoard, lastPlayed};
+    let board = {...currentBoard, burn};
     let state = {...currentState, [playerId]: player, [boardId]: board};
     return state;
 }
@@ -63,8 +65,19 @@ const ImmutableArray = {
     append(arr, value) {
         return [...arr, value];
     },
+    //factor this function to move the cards to burn 
+    appendLP(arr1, value) {
+        if (arr1.length > 1){
+            return[...arr1, value];
+        }
+    },
     removeAt(arr, index) {
         return [...arr.slice(0, index), ...arr.slice(index + 1)];
+    },
+    removeLastPlayed(arr, index) {
+        if (arr.length > 0){
+            return [...arr.slice(0, index), ...arr.slice(index+1)] 
+        }
     }
 };
 
