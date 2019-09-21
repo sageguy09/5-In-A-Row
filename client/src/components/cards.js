@@ -1,5 +1,5 @@
 import cardObjs from './cardObjects.json'
-
+import { INVALID_MOVE } from 'boardgame.io/core'
 function initialState(ctx, state) {
     let cardId = 0;
     let cards = [];
@@ -27,6 +27,9 @@ function initialState(ctx, state) {
 
 function drawCard(currentState, ctx) {
     let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
+    if (currentPlayer.hand.length >= 4){
+        return INVALID_MOVE;
+    }
     //let {currentBoard, boardId} = getCurrentBoard(currentState, ctx);
     let boardId="board"
     let currentBoard = currentState[boardId]
@@ -42,6 +45,13 @@ function drawCard(currentState, ctx) {
     return state;
     
 }
+/*
+function checkCardCount(currentState, ctx) {
+    let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
+    if (currentPlayer.hand.length === 4(
+        return 
+    )
+}*/
 
 function playCard(currentState, ctx, cardId) {
     let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
@@ -63,9 +73,14 @@ function playCard(currentState, ctx, cardId) {
     return state;
 }
 function clickCell(G, ctx, id) {
-    if (G.cells[id] === null) {
-        G.cells[id] = ctx.currentPlayer;
+    if (G.cells[id] !== null) {
+        return INVALID_MOVE;
     }
+    //fill cell with 0 or 1 depending the current player.
+    G.cells[id] = ctx.currentPlayer;
+    // if (G.cells[id] === null) {
+    //     G.cells[id] = ctx.currentPlayer;
+    // }
 
 }
 function getCurrentPlayer(state, ctx) {
@@ -73,12 +88,7 @@ function getCurrentPlayer(state, ctx) {
     let currentPlayer = state[playerId];
     return {currentPlayer, playerId};
 }
-/*
-function getCurrentBoard(state, "board") {
-    let boardId =  ctx.currentBoard;
-    let currentBoard = state[boardId];
-    return {currentBoard, boardId};
-}*/
+
 const ImmutableArray = {
     append(arr, value) {
         return [...arr, value];
@@ -99,6 +109,13 @@ const ImmutableArray = {
     }
 };
 
+//create function onTurnStart that will check the players turn to ensure they 
+//have enough cards to to playCard
+
+
+
+
+//checkCards[]
 export {initialState, drawCard, playCard, clickCell}
 
 
@@ -114,7 +131,12 @@ export {initialState, drawCard, playCard, clickCell}
 
 
 
-
+/*
+function getCurrentBoard(state, "board") {
+    let boardId =  ctx.currentBoard;
+    let currentBoard = state[boardId];
+    return {currentBoard, boardId};
+}*/
 
 /*
 function initialState1() {

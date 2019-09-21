@@ -1,5 +1,5 @@
 import { Client } from 'boardgame.io/react';
-import { Game } from 'boardgame.io/core';
+import { Game, INVALID_MOVE } from 'boardgame.io/core';
 import { AI } from 'boardgame.io/ai'
 import TicTacToeBoard from './ticGameBoard';
 

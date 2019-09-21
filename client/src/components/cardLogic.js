@@ -1,6 +1,6 @@
 import { Client } from 'boardgame.io/react';
-import { Game } from 'boardgame.io/core';
-import {initialState, drawCard, playCard, clickCells } from './cards'
+import { Game, INVALID_MOVE } from 'boardgame.io/core';
+import {initialState, drawCard, playCard, clickCell } from './cards'
 import TicTacToeBoard from './ticGameBoard';
 import App from '../App';
 
@@ -229,12 +229,13 @@ const cards = Game({
     moves: {
         drawCard,
         playCard,
-        clickCell(G, ctx, id) {
-            if (G.cells[id] === null) {
-                G.cells[id] = ctx.currentPlayer;
-            }
+        clickCell,
+        // clickCell(G, ctx, id) {
+        //     if (G.cells[id] === null) {
+        //         G.cells[id] = ctx.currentPlayer;
+        //     }
         
-        },
+        // },
     },
     flow: {
         movesPerTurn: 1,
