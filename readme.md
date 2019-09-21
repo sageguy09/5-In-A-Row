@@ -1,5 +1,8 @@
 ## SEI Project 3
 ---
+
+### prototype
+(playable prototype)[https://shrouded-beach-62784.herokuapp.com]
 ### credits
 react game-board engine and initial gameboard and click cells logic from Nicolo Davis' over at boardgame.io
 
