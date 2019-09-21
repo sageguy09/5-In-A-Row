@@ -1,5 +1,6 @@
 import {initialState, drawCard, playCard} from './gameFunctions'
 import cardObjs from './cardObjects.json'
+import { isMainThread } from 'worker_threads';
 const mockCtx = {
     numPlayers: 2,
     turn: 0,

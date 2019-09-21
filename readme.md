@@ -1,5 +1,7 @@
 ## SEI Project 3
 ---
+### credits
+react game-board engine and initial gameboard and click cells logic from Nicolo Davis' over at boardgame.io
 
 ### 5 in a Row Web App
 
