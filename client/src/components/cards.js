@@ -1,6 +1,6 @@
 function initialState(ctx, state) {
     return state || {
-        board_1: {
+        board: {
             deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             lastPlayed: [],
             burn: []
@@ -16,7 +16,9 @@ function initialState(ctx, state) {
 
 function drawCard(currentState, ctx) {
     let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
-    let {currentBoard, boardId} = getCurrentBoard(currentState, ctx);
+    //let {currentBoard, boardId} = getCurrentBoard(currentState, ctx);
+    let boardId="board"
+    let currentBoard = currentState[boardId]
     //add last card from board.deck to currentPlayer hand
     let deckIndex = currentBoard.deck.length - 1; 
     //let hand = [...currentPlayer.hand, currentBoard.deck[deckIndex]];
@@ -31,19 +33,14 @@ function drawCard(currentState, ctx) {
 }
 
 function playCard(currentState, ctx, cardId) {
-   /* let playerId = "player_0"; 
-    let boardId="board_1"
-    let currentPlayer = currentState[playerId];
-    let currentBoard = currentState[boardId]*/
     let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
-    let {currentBoard, boardId} = getCurrentBoard(currentState, ctx);
+    let boardId="board"
+    let currentBoard = currentState[boardId]
     //find the card in hand and add to burn
     let handIndex = currentPlayer.hand.indexOf(cardId);
-    console.log(handIndex)
     //let lastPlayed = [...currentBoard.lastPlayed, currentPlayer.hand[handIndex]];
     let lastPlayed = ImmutableArray.append(currentBoard.lastPlayed, currentPlayer.hand[handIndex])
     //remove card from player hand. 
-    //let hand = [...currentPlayer.hand.slice(0, handIndex), ...currentPlayer.hand.slice(handIndex+1)];
     let hand = ImmutableArray.removeAt(currentPlayer.hand, handIndex)
     //construct and return a new state object with changes.
     let player = {...currentPlayer, hand};
@@ -51,40 +48,17 @@ function playCard(currentState, ctx, cardId) {
     let state = {...currentState, [playerId]: player, [boardId]: board};
     return state;
 }
-
 function getCurrentPlayer(state, ctx) {
     let playerId = "player_" + ctx.currentPlayer;
     let currentPlayer = state[playerId];
     return {currentPlayer, playerId};
 }
-function getCurrentBoard(state, ctx) {
-    let boardId = "board_" + ctx.currentBoard;
+/*
+function getCurrentBoard(state, "board") {
+    let boardId =  ctx.currentBoard;
     let currentBoard = state[boardId];
     return {currentBoard, boardId};
-}
-/*
-function constructStateForPlayer(currentState, playerId, playerState) {
-    let newPlayerState = Object.assign({}, currentState[playerId], playerState);
-    return {...currentState, [playerId]: newPlayerState};
-}
-
-function constructStateForBoard(currentState, boardId, boardState) {
-    let newBoardState = Object.assign({}, currentState[boardId], boardState);
-    return {...currentState, [boardId]: newBoardState};
-}
-
-
-
-build a  function for this where you are combinng these together to see if you 
-can build a constructor for state from the passed values
-let player = {...currentPlayer, hand};
-    let board = {...currentBoard, lastPlayed};
-    let state = {...currentState, [playerId]: player, [boardId]: board};
-    return state;
-    function constructState(currentState)
-    */
-
-
+}*/
 const ImmutableArray = {
     append(arr, value) {
         return [...arr, value];
@@ -94,50 +68,6 @@ const ImmutableArray = {
     }
 };
 
-
-
-
-// function drawCard(currentState) {
-//     let playerId= "player_0";
-//     let boardId= "board"
-//     let currentPlayer = currentState[playerId];
-//     let currentBoard = currentState[boardId]
-//     //add last card from board.deck to currentPlayer hand
-//     let deckIndex = currentBoard.deck.length - 1; 
-//     let hand = [...currentPlayer.hand, currentBoard.deck[deckIndex]];
-//     //remove the last card in deck
-//     let deck = currentBoard.deck.slice(0, deckIndex);
-//     let player = {...currentPlayer, hand};
-//     let board = {...currentBoard, deck};
-//     let state = {...currentState, [playerId]: player, [boardId]: board}
-//     return state;
-// }
-
-// function playCard(currentState, ctx, cardId) {
-//     let playerId = "player_0"; 
-//     let boardId="board"
-//     let currentPlayer = currentState[playerId];
-//     let currentBoard = currentState[boardId]
-//     //find the card in hand and add to burn
-//     let handIndex = currentPlayer.hand.indexOf(cardId);
-//     let lastPlayed = [...currentBoard.lastPlayed, currentPlayer.hand[handIndex]];
-//     //remove card from player hand. 
-//     let hand = [...currentPlayer.hand.slice(0, handIndex), ...currentPlayer.hand.slice(handIndex+1)];
-//     //construct and return a new state object with changes.
-//     let player = {...currentPlayer, hand};
-//     let board = {...currentBoard, lastPlayed};
-//     let state = {...currentState, [playerId]: player, [boardId]: board};
-//     return state;
-// }
-
-
-
-/*
-let state_One = initialState();
-let state_Two = drawCard(state_One);
-console.log('state_One', state_One)
-console.log('state_Two', state_Two)
-*/
 export {initialState, drawCard, playCard}
 
 
@@ -193,4 +123,71 @@ let state_0 = initialState1();
 let state_1 = drawCard1(state_0);
 console.log('state_0', state_0);
 console.log('state_1', state_1);
+*/
+
+
+
+/*
+function drawCard(currentState) {
+    let playerId= "player_0";
+    let boardId= "board"
+    let currentPlayer = currentState[playerId];
+    let currentBoard = currentState[boardId]
+    //add last card from board.deck to currentPlayer hand
+    let deckIndex = currentBoard.deck.length - 1; 
+    let hand = [...currentPlayer.hand, currentBoard.deck[deckIndex]];
+    //remove the last card in deck
+    let deck = currentBoard.deck.slice(0, deckIndex);
+    let player = {...currentPlayer, hand};
+    let board = {...currentBoard, deck};
+    let state = {...currentState, [playerId]: player, [boardId]: board}
+    return state;
+}
+
+function playCard(currentState, ctx, cardId) {
+    let playerId = "player_0"; 
+    let boardId="board"
+    let currentPlayer = currentState[playerId];
+    let currentBoard = currentState[boardId]
+    //find the card in hand and add to burn
+    let handIndex = currentPlayer.hand.indexOf(cardId);
+    let lastPlayed = [...currentBoard.lastPlayed, currentPlayer.hand[handIndex]];
+    //remove card from player hand. 
+    let hand = [...currentPlayer.hand.slice(0, handIndex), ...currentPlayer.hand.slice(handIndex+1)];
+    //construct and return a new state object with changes.
+    let player = {...currentPlayer, hand};
+    let board = {...currentBoard, lastPlayed};
+    let state = {...currentState, [playerId]: player, [boardId]: board};
+    return state;
+}
+
+
+function constructStateForPlayer(currentState, playerId, playerState) {
+    let newPlayerState = Object.assign({}, currentState[playerId], playerState);
+    return {...currentState, [playerId]: newPlayerState};
+}
+
+function constructStateForBoard(currentState, boardId, boardState) {
+    let newBoardState = Object.assign({}, currentState[boardId], boardState);
+    return {...currentState, [boardId]: newBoardState};
+}
+
+
+
+build a  function for this where you are combinng these together to see if you 
+can build a constructor for state from the passed values
+let player = {...currentPlayer, hand};
+    let board = {...currentBoard, lastPlayed};
+    let state = {...currentState, [playerId]: player, [boardId]: board};
+    return state;
+    function constructState(currentState)
+    */
+
+
+/*
+old test scripts
+let state_One = initialState();
+let state_Two = drawCard(state_One);
+console.log('state_One', state_One)
+console.log('state_Two', state_Two)
 */

@@ -29,7 +29,6 @@ test('drawing a card', () => {
     expect(state_One.board_1.deck).toEqual([1, 2, 3, 4, 5]);
     //post drawCard(state_One) board.deck expectation 
     expect(state_Two.board_1.deck).toEqual([1, 2, 3, 4]);
-    ////drawCard Tests////
     //initial player_0.hand expectation
     console.log(state_One.player_0.hand)
     expect(state_One.player_0.hand).toEqual([]);
@@ -41,9 +40,13 @@ test('playing a card', () => {
     let state_1 = initialState(mockCtx, mockState);
     let state_2 = drawCard(state_1, mockCtx);
     let state_3 = playCard(state_2, mockCtx, 5);
+    //initial board.lastPlayed expectation
     expect(state_2.board_1.lastPlayed).toEqual([]);
+    //initial player_0.hand expectation
     expect(state_2.player_0.hand).toEqual([5]);
+    //post playCard board_1.lastPlayed expectation
     expect(state_3.board_1.lastPlayed).toEqual([5])
+    //post playCard player_0.hand expectation
     expect(state_3.player_0.hand).toEqual([])
 
 })
