@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TicTacToeBoard extends Component {
+class gameBoard extends Component {
     onClick(id) {
         if (this.isActive(id)) {
             this.props.moves.clickCell(id);
@@ -57,4 +57,4 @@ class TicTacToeBoard extends Component {
     }
 }
 
-export default TicTacToeBoard;
+export default gameBoard;

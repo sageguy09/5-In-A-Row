@@ -30,12 +30,10 @@ function drawCard(currentState, ctx) {
     if (currentPlayer.hand.length >= 4){
         return INVALID_MOVE;
     }
-    //let {currentBoard, boardId} = getCurrentBoard(currentState, ctx);
     let boardId="board"
     let currentBoard = currentState[boardId]
     //add last card from board.deck to currentPlayer hand
     let deckIndex = currentBoard.deck.length - 1; 
-    //let hand = [...currentPlayer.hand, currentBoard.deck[deckIndex]];
     let hand = ImmutableArray.append(currentPlayer.hand, currentBoard.deck[deckIndex]);
     //remove the last card in deck
     let deck = ImmutableArray.removeAt(currentBoard.deck, deckIndex);
@@ -45,13 +43,6 @@ function drawCard(currentState, ctx) {
     return state;
     
 }
-/*
-function checkCardCount(currentState, ctx) {
-    let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
-    if (currentPlayer.hand.length === 4(
-        return 
-    )
-}*/
 
 function playCard(currentState, ctx, cardId) {
     let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
@@ -59,12 +50,9 @@ function playCard(currentState, ctx, cardId) {
     let currentBoard = currentState[boardId]
     //find the card in hand, add hand.card to  burn
     let handIndex = currentPlayer.hand.indexOf(cardId);
+    //let cells = playOnCell(currentState, ctx, cardId );
     let burn = ImmutableArray.append(currentBoard.burn, currentPlayer.hand[handIndex])
     //remove card from player hand. 
-    //let burnIndex = (burn.length-1)
-    //let lastPlayed = ImmutableArray.append(currentBoard.lastPlayed, burn[burnIndex])
-    //let lastPlayedIndex = (lastPlayed[0])
-    //let removeLastPlayed = ImmutableArray.removeAt(lastPlayed, lastPlayedIndex)
     let hand = ImmutableArray.removeAt(currentPlayer.hand, handIndex)
     //construct and return a new state object with changes.
     let player = {...currentPlayer, hand};
@@ -72,17 +60,16 @@ function playCard(currentState, ctx, cardId) {
     let state = {...currentState, [playerId]: player, [boardId]: board};
     return state;
 }
+
 function clickCell(G, ctx, id) {
     if (G.cells[id] !== null) {
         return INVALID_MOVE;
     }
     //fill cell with 0 or 1 depending the current player.
     G.cells[id] = ctx.currentPlayer;
-    // if (G.cells[id] === null) {
-    //     G.cells[id] = ctx.currentPlayer;
-    // }
-
 }
+
+
 function getCurrentPlayer(state, ctx) {
     let playerId = "player_" + ctx.currentPlayer;
     let currentPlayer = state[playerId];
@@ -93,20 +80,9 @@ const ImmutableArray = {
     append(arr, value) {
         return [...arr, value];
     },
-    //factor this function to move the cards to burn 
-    appendLP(arr1, value) {
-        if (arr1.length > 1){
-            return[...arr1, value];
-        }
-    },
     removeAt(arr, index) {
         return [...arr.slice(0, index), ...arr.slice(index + 1)];
     },
-    removeLastPlayed(arr, index) {
-        if (arr.length > 0){
-            return [...arr.slice(0, index), ...arr.slice(index+1)] 
-        }
-    }
 };
 
 //create function onTurnStart that will check the players turn to ensure they 

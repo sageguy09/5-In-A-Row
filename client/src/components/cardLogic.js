@@ -1,7 +1,7 @@
 import { Client } from 'boardgame.io/react';
 import { Game, INVALID_MOVE } from 'boardgame.io/core';
-import {initialState, drawCard, playCard, clickCell } from './cards'
-import TicTacToeBoard from './ticGameBoard';
+import {initialState, drawCard, playCard, clickCell } from './gameFunctions'
+import firBoard from './gameBoard';
 import App from '../App';
 
 
@@ -224,18 +224,12 @@ function IsDraw(cells) {
 }
 
 
-const cards = Game({
+const fir = Game({
     setup: initialState, 
     moves: {
         drawCard,
         playCard,
         clickCell,
-        // clickCell(G, ctx, id) {
-        //     if (G.cells[id] === null) {
-        //         G.cells[id] = ctx.currentPlayer;
-        //     }
-        
-        // },
     },
     flow: {
         movesPerTurn: 1,
@@ -261,9 +255,9 @@ const cards = Game({
     }
 });
 
-const CardsLogic = Client({
-    game: cards,
-    board: TicTacToeBoard
+const FiveInARow = Client({
+    game: fir,
+    board: firBoard
 });
 
-export default CardsLogic;
+export default FiveInARow;

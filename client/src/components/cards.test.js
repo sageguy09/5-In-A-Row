@@ -1,4 +1,4 @@
-import {initialState, drawCard, playCard} from './cards'
+import {initialState, drawCard, playCard} from './gameFunctions'
 import cardObjs from './cardObjects.json'
 const mockCtx = {
     numPlayers: 2,
@@ -60,13 +60,6 @@ test('playing a card', () => {
     expect(state_3.player_0.hand).toEqual([])
 
 })
-
-
-
-
-
-
-
 
 
 
