@@ -1,4 +1,5 @@
 import cardObjs from './cardObjects.json'
+import spaceObjs from './spaceMapping.json'
 import { INVALID_MOVE } from 'boardgame.io/core'
 function initialState(ctx, state) {
     let cardId = 0;
@@ -9,10 +10,30 @@ function initialState(ctx, state) {
             cardObj: card
         })
     })
+    let spaceId = 0;
+    let spaces = []
+    spaceObjs.forEach(space => {
+        spaces.push({
+            id: spaceId++,
+            spaceObj: space
+        })
+    })
     return state || {
         board: {
             deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-            burn: []
+            burn: [],
+            boardArray :  [
+                90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
+                89, 42, 43, 44, 45, 46, 47, 48, 49, 64,
+                88, 41, 20, 21, 22, 23, 24, 25, 50, 65,
+                87, 41, 20, 21, 22, 23, 24, 25, 50, 65, 
+                86, 39, 18, 5, 0, 1, 10, 27, 52, 67,
+                85, 38, 17, 4, 3, 2, 11, 28, 53, 68,
+                84, 37, 16, 15, 14, 13, 12, 29, 54, 69,
+                83, 36, 35, 34, 33, 32, 31, 30, 55, 70,
+                82, 63, 62, 61, 60, 59, 58, 57, 56, 71,
+                81, 80, 79, 78, 77, 76, 75, 74, 73, 72
+              ]
         },
         player_0: {
             hand: []
@@ -21,7 +42,9 @@ function initialState(ctx, state) {
             hand: []
         },
         cells: Array(100).fill(null),
+        spaces,
         cards,
+        
     }
 }
 
@@ -32,6 +55,7 @@ function drawCard(currentState, ctx) {
     }
     let boardId="board"
     let currentBoard = currentState[boardId]
+    console.log(currentBoard.boardArray.length)
     //add last card from board.deck to currentPlayer hand
     let deckIndex = currentBoard.deck.length - 1; 
     let hand = ImmutableArray.append(currentPlayer.hand, currentBoard.deck[deckIndex]);
@@ -50,7 +74,10 @@ function playCard(currentState, ctx, cardId) {
     let currentBoard = currentState[boardId]
     //find the card in hand, add hand.card to  burn
     let handIndex = currentPlayer.hand.indexOf(cardId);
-    //let cells = playOnCell(currentState, ctx, cardId );
+    let id = cardId
+    //let cellIndex = currentBoard.cells[cardId]
+    //playOnSpace(currentBoard.)
+    //let cells = ImmutableArray.append(currentBoard.cells, currentPlayer.hand[handIndex])
     let burn = ImmutableArray.append(currentBoard.burn, currentPlayer.hand[handIndex])
     //remove card from player hand. 
     let hand = ImmutableArray.removeAt(currentPlayer.hand, handIndex)
@@ -61,14 +88,24 @@ function playCard(currentState, ctx, cardId) {
     return state;
 }
 
+function playOnSpace(G, ctx, spaceId) {
+    //let spaceIndex = ctx.board.spaces
+    if (G.spaceId[spaceId] !== null) {
+        return INVALID_MOVE;
+    }
+    //fill cell with 0 or 1 depending the current player.
+    G.spaceId[spaceId] = ctx.currentPlayer;
+}
+
 function clickCell(G, ctx, id) {
     if (G.cells[id] !== null) {
         return INVALID_MOVE;
     }
     //fill cell with 0 or 1 depending the current player.
     G.cells[id] = ctx.currentPlayer;
+    console.log('post state: '+G.cells[id])
+    //console.log('postCTX: '+{ctx})
 }
-
 
 function getCurrentPlayer(state, ctx) {
     let playerId = "player_" + ctx.currentPlayer;
