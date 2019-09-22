@@ -2,7 +2,7 @@ import React, {Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import CardsLogic from './components/cardLogic'
+import CardsLogic from './components/gameLogic'
 
 class App extends Component {
   render () {
