@@ -28,19 +28,19 @@ const usersSchema = new mongoose.Schema({
   location: {
     type: String,
     default: 'Earth'
-  }, 
-  games: [
-    {
-      type: ObjectId,
-      default: undefined
-    }
-  ]
+  }
+  // games: [
+  //   {
+  //     type: ObjectId,
+  //     default: undefined
+  //   }
+  // ]
 })
 
 /*
  * collection APIs
  */
-const UserCollection = mongoose.model('Users', usersSchema)
+const UserCollection = mongoose.model('UsersNoGame', usersSchema)
 
 /* Step 4
  * model functions
