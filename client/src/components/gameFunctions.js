@@ -1,6 +1,17 @@
 import cardObjs from './cardObjects.json'
 import spaceObjs from './spaceMapping.json'
 import { INVALID_MOVE } from 'boardgame.io/core'
+/*
+getCards = () => {
+    fetch('api/fir/cards')
+    .then(res => res.json())
+    .then((res) => {
+        console.log('from cards: ' + res)
+        this.setState({ users: res})
+    })
+}*/
+
+
 function initialState(ctx, state) {
     let cardId = 0;
     let cards = [];
@@ -74,7 +85,7 @@ function playCard(currentState, ctx, cardId) {
     let currentBoard = currentState[boardId]
     //find the card in hand, add hand.card to  burn
     let handIndex = currentPlayer.hand.indexOf(cardId);
-    let id = cardId
+    //let id = cardId
     //let cellIndex = currentBoard.cells[cardId]
     //playOnSpace(currentBoard.)
     //let cells = ImmutableArray.append(currentBoard.cells, currentPlayer.hand[handIndex])

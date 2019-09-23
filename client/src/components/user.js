@@ -35,7 +35,7 @@ class singleUser extends React.Component {
         fetch('api/user/user/5d87e46eb06f86f183ad6e59')
         .then(res => res.json())
         .then((res) => {
-            console.log('from getOne: ' + res)
+            //console.log('from getOne: ' + res)
             this.setState({ user: {...res}})
         })
     }
