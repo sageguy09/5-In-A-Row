@@ -2,16 +2,19 @@ import React, {Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-// import CardsLogic from './components/gameLogic.js'
+import CardsLogic from './components/gameLogic.js'
 import Users from './components/users'
 import User from './components/user'
+import addUserForm from './components/addUser'
+
 class App extends Component {
   render () {
     return (
       <div>
-        <Users />
+        <Users /> 
         <User />
-        {/* <CardsLogic /> */}
+        <addUserForm />
+        <CardsLogic />
       </div>
     )
   }
