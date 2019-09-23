@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 
 const userComp = (userObj) => {
+    console.log("log from userComp:" + userObj)
     return (<div>
         <h2> { userObj.userName }</h2>
         <ul>
@@ -14,43 +15,66 @@ const userComp = (userObj) => {
     )
 }
 
-/*
-const userdiv = ({name, assignments}) => (
-    <div>
-      <h3>{name}</h3>
-      {courseAverage(assignments)}
-      {assignmentList(assignments)}
-    </div>
-  )*/
-const getAllUsers = () =>
+const userListing = (users) => 
+    (<div>{users.map(userComp)}</div>)
+
+
+class usersList extends React.Component {
+    state = 
+    { users: [] }
+
+    componentDidMount() {
+        this.getAll()
+    }
+
+    getAll = () => {
+        fetch('api/user/users')
+        .then(res => res.json())
+        .then((res) => {
+            console.log('from getALL: ' + res)
+            this.setState({ users: res})
+        })
+    }
+    render()  {
+        return (
+        <div>
+            <h1>message list h1</h1>
+            {/* {userListing(this.state.users)} */}
+            {this.state.users.map(users => (
+                userComp(users)
+            ))}
+        </div>
+        )
+    }
+}
+
+export default usersList;
+
+
+
+
+
+    /*
+
+
+    const getAllUsers = () =>
     fetch('api/user/users')
     .then(res => res.json())
     .catch(() => [])
 
-
-
-const getFirstUser = () =>
-    getAllUsers().then(usr => usr.length < 1 ? { 
-        userName: "naUser", 
-        password: "naPass", 
-        firstName: "naName", 
-        email: "naEmail", 
-        location: "naLocation"} : usr[0])
-class singleUser extends React.Component {
-    state = 
-       { users: 
-            {userName: "testUserState",
-            password: "testPassState",
-            firstName: "testNameState",
-            email: "testemailState",
-            location: "testLocState"
-            //games: [{gameID: "5d83ea5a0fb61640b1698a7c"}]  
-            }
-        }
-    
-    componentDidMount() {
-        this.getUsersFromServer();
+    getAllUsers() {
+        getAllUsers()
+            //.then(users => Promise.all(users.map(userListing)))
+            .then(users => {
+                this.setState({ users: [...users]})
+            });
     }
+    */
+
+
+
+
+/*
 
     getUsersFromServer = () => {
         fetch('api/user/users')
@@ -58,18 +82,9 @@ class singleUser extends React.Component {
             .then ( users => {
                 //console.log(users);
                 //this.setListOfUsers(users)
-                this.getUser()
+                this.getUsers()
             })
         }
-
-        //this line is just returngin the first user
-        getUser() {
-            getFirstUser()
-                .then(user => {
-                    this.setState({ users: {...user}})
-                })
-        }
-
         //this line is no longer working...
         setListOfUsers = (users) => {
             let userList = {...this.state.users}
@@ -78,22 +93,14 @@ class singleUser extends React.Component {
             console.log(users)
             this.setState({ users: {...userList.users} })
         }
-        
-
-    render()  {
-        return (
-        <div>
-            <h1>message list h1</h1>
-            {userComp(this.state.users)}
-        </div>
-        )
-    }
-}
-
-export default singleUser;
-
-
-
+        //this line is just returngin the first user
+        getUsers(){
+            getFirstUser()
+                .then(user => {
+                    this.setState({ users: {...user}})
+                })
+        }
+*/
 
 
 
