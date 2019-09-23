@@ -32,6 +32,9 @@ function cardsGetHelloWorldString() {
 }
 //////////Cards Model Functions//////////
 
+const getCardCollection = () => {
+  return cardCollection.find();
+} 
 const getSingleCardCollection = (cardsId) => {
    return cardCollection.findById(cardsId);
 } 
@@ -581,6 +584,7 @@ const addMultipleCards = (gameId, deckId) => {
  * exportfunctions
  */
 module.exports = {
+  getCardCollection,
   addMultipleCards,
   addCardCollection,
   cardsGetHelloWorldString,
