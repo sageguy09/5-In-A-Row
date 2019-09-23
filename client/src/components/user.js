@@ -13,45 +13,53 @@ const userComp = (userObj) => {
         </div>
     )
 }
-
-/*
-const userdiv = ({name, assignments}) => (
-    <div>
-      <h3>{name}</h3>
-      {courseAverage(assignments)}
-      {assignmentList(assignments)}
-    </div>
-  )*/
-const getAllUsers = () =>
-    fetch('api/user/users')
-    .then(res => res.json())
-    .catch(() => [])
-
-
-
-const getFirstUser = () =>
-    getAllUsers().then(usr => usr.length < 1 ? { 
-        userName: "naUser", 
-        password: "naPass", 
-        firstName: "naName", 
-        email: "naEmail", 
-        location: "naLocation"} : usr[0])
 class singleUser extends React.Component {
     state = 
-       { users: 
-            {userName: "testUserState",
-            password: "testPassState",
-            firstName: "testNameState",
-            email: "testemailState",
-            location: "testLocState"
-            //games: [{gameID: "5d83ea5a0fb61640b1698a7c"}]  
-            }
+        { user: 
+                {userName: "testUserState",
+                password: "testPassState",
+                firstName: "testNameState",
+                email: "testemailState",
+                location: "testLocState"
+                //games: [{gameID: "5d83ea5a0fb61640b1698a7c"}]  
+                }
+              
         }
     
     componentDidMount() {
-        this.getUsersFromServer();
+        this.getOne();
     }
 
+
+    getOne = () => {
+        fetch('api/user/user/5d87e46eb06f86f183ad6e59')
+        .then(res => res.json())
+        .then((res) => {
+            console.log('from getOne: ' + res)
+            this.setState({ user: {...res}})
+        })
+    }
+
+
+    render()  {
+        return (
+        <div>
+            <h1>message list h1</h1>
+            {userComp(this.state.user)}
+            {/* {this.state.user.map(user => (
+                userComp(user)
+            ))} */}
+        </div>
+        )
+    }
+}
+
+export default singleUser;
+
+
+
+
+/*
     getUsersFromServer = () => {
         fetch('api/user/users')
             .then(res => res.json())
@@ -78,22 +86,7 @@ class singleUser extends React.Component {
             console.log(users)
             this.setState({ users: {...userList.users} })
         }
-        
-
-    render()  {
-        return (
-        <div>
-            <h1>message list h1</h1>
-            {userComp(this.state.users)}
-        </div>
-        )
-    }
-}
-
-export default singleUser;
-
-
-
+        */
 
 
 
@@ -126,3 +119,18 @@ export default singleUser;
             this.setMessageList(listOfMessages)
         })
     }*/
+
+    /*
+const getAllUsers = () =>
+    fetch('api/user/users')
+    .then(res => res.json())
+    .catch(() => [])
+
+const getFirstUser = () =>
+    getAllUsers().then(usr => usr.length < 1 ? { 
+        userName: "naUser", 
+        password: "naPass", 
+        firstName: "naName", 
+        email: "naEmail", 
+        location: "naLocation"} : usr[0])
+        */
