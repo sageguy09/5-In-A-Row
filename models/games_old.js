@@ -15,14 +15,12 @@ const gameSchema = new mongoose.Schema({
     type: String,
     default: "testGame"
   },
-  player_0: {
-    type: String, default: "Player One"
+  createdAt: {
+    type: Date, default: Date.now
   },
-  player_1: {
-    type: String, default: "Player Two"
-  },
-  player_2: {
-    type: String, default: "Player Three"
+
+  createdBy: {
+    type: ObjectId
   }
 })
 
@@ -41,13 +39,28 @@ gameSchema.pre('save', function(next){
 /*
  * collection APIs
  */
-const GameCollection = mongoose.model('GamePlayers', gameSchema)
+const GameCollection = mongoose.model('Game', gameSchema)
+const HandColleciton = mongoose.model('Hand', gameSchema)
 
 /* Step 4
  * model functions
  */
 function gameGetHelloWorldString() {
   return 'hello world'
+}
+
+
+const createGame = (userId, name) => {
+  return GameCollection.create({
+       gameName: name.gameName,
+       createdBy: userId
+   })
+}
+const addPlayerHand = (gameId, playerId) => {
+  HandColleciton.create({
+    assignedPlyr: playerId,
+    assignedGame: gameId
+  })
 }
 
 const getAllGames = () => {
@@ -74,6 +87,8 @@ const deleteGame = (gameId) => {
  */
 module.exports = {
   addGame,
+  addPlayerHand,
+  createGame,
   deleteGame,  
   getAllGames,
   getSingleGame,
