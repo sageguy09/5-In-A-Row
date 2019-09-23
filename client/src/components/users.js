@@ -23,7 +23,7 @@ class usersList extends React.Component {
     state = 
     { users: [] }
 
-    componentDidMount() {
+    componentDidMount   () {
         this.getAll()
     }
 

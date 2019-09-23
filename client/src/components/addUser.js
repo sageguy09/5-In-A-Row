@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React  from 'react';
 
-class addUserForm extends React.Component {
+export default class addUserForm extends React.Component {
     state = 
         { newUser: 
                 {userName: "",
@@ -13,7 +13,7 @@ class addUserForm extends React.Component {
         }
     handleTextInput = (evnt) => {
         //1. copy from state
-        let newUser = {...this.state.user}
+        let newUser = {...this.state.newUser}
     
         //2. modify state
         newUser[evnt.target.name] = evnt.target.value
@@ -65,8 +65,6 @@ class addUserForm extends React.Component {
         )
     }
 }
-
-export default addUserForm;
 
 
 

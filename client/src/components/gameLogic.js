@@ -257,7 +257,11 @@ const fir = Game({
 
 const FiveInARow = Client({
     game: fir,
-    board: firBoard
+    board: firBoard,
+//    multiplayer: {local: true},
+//     // multiplayer: { server: 'localhost:3000'},
+//     numOfPlayers: 2
 });
+
 
 export default FiveInARow;
