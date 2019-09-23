@@ -20,9 +20,6 @@ const gameSchema = new mongoose.Schema({
   },
   player_1: {
     type: String, default: "Player Two"
-  },
-  player_2: {
-    type: String, default: "Player Three"
   }
 })
 

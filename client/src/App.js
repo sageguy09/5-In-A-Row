@@ -39,8 +39,6 @@ toggleAddUser = () => {
   render () {
     return (
       <div>
-        <Users /> 
-        
         <CreateGame 
           allUsers={this.state.users}
           toggleAddUser={this.toggleAddUser}
