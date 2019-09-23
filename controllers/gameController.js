@@ -63,6 +63,12 @@ gameRouter.delete('/:userId/:gameId/createGame', (req, res) => {
 })
 */
 
+//get all cards
+gameRouter.get('/cards', (req, res) => {
+  cardsApi.getCardCollection().then(cards => {
+    res.send(cards)
+  })
+})
 
 
 
