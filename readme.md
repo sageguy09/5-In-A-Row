@@ -2,16 +2,23 @@
 ---
 
 ### Deployed Application
-(Link to Application on Heroku)[https://shrouded-beach-62784.herokuapp.com]
+[Link to Application on Heroku](https://shrouded-beach-62784.herokuapp.com)
 
 ### Project Planning Board
 
-(Link to GitKraken Project)[https://app.gitkraken.com/glo/board/XX-h3biuYQAP_SwN]
+[Link to GitKraken Project](https://app.gitkraken.com/glo/board/XX-h3biuYQAP_SwN)
 
 
-### 5 in a Row Web App
+### Problem Statement and Target Audience
 
-This webapp game is based on a borad game written by my grandmother, Paula Claudill, back in the late 60s. She initially hand crafted 100 boards and sold all of them at craft festivals throughout Indiana. She sold all versions of the game, but 1, which is what us grandkids grew up playing. The availability of the board game is what inspired this web app. 
+This web app is to provide an online verision of the original board game. 
+
+Through this app, my family will be able to play together over the web while also introducing the internet to our favorite family board game.
+
+### A history on Five in a Row
+
+'Five in a Row' is a boardd game written by my grandmother, Paula Claudill, back in the late 60s. She initially hand crafted 100 boards and sold all of them at craft festivals throughout Indiana. She sold all versions of the game, but 1, which is what us grandkids grew up playing. The availability of the board game is what inspired this web app. 
+
 
 Not being able to have access to '5 in a row' outside of my Grandparent's home,I wanted to provide a solution for all family members to be able to not only play the game, but to be able to play together from anwhere an internet connection is present.  Through this webapp, our family can play our favorite family board game, from any where in the country. 
 
