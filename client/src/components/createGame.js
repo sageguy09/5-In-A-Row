@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddUserForm from './AddUser'
 
 class gameCreate extends React.Component {
 
@@ -85,7 +86,8 @@ handleTextInput = (evnt) => {
             <input type="submit"  value="Create Game" />
             </form>
             <br/>
-            <button onClick={this.props.toggleAddUser} >Add a player to the database</button>
+            <AddUserForm/>
+            {/* <button onClick={this.props.toggleAddUser} >Add a player to the database</button> */}
             <br />
             
         </div>

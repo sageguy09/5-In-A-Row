@@ -14,8 +14,8 @@ import CreateGame from './components/createGame'
 class App extends Component {
   state = 
 { users: [],
-  colors: [],
-  isAddUserActive: false
+  colors: []
+  //isAddUserActive: false
 }
 
   componentDidMount   () {
@@ -39,11 +39,11 @@ getColors = () => {
       this.setState({ colors: res})
   })
 }
-toggleAddUser = () => {
+/*toggleAddUser = () => {
   this.setState((state) => {
       return {isAddUserActive : !state.isAddUserActive}
   })
-}
+}*/
 
 
   render () {
