@@ -5,6 +5,7 @@ import firBoard from './gameBoard';
 import App from '../App';
 
 
+
 function IsVictory(cells) {
     const positions = [
         [0, 1, 2, 3, 4],
@@ -258,9 +259,9 @@ const fir = Game({
 const FiveInARow = Client({
     game: fir,
     board: firBoard,
-   multiplayer: {local: true},
+   //multiplayer: {local: true},
     // multiplayer: { server: 'localhost:3000'},
-    numOfPlayers: 2
+    //numOfPlayers: 2
 });
 
 

@@ -1,25 +1,21 @@
 import React, {Component } from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Home from './components/Home'
 import './App.css';
-
-import CardsLogic from './components/gameLogic.js'
-import Users from './components/users'
-import User from './components/user'
-import AddUserForm from './components/addUser'
-import CreateGame from './components/createGame'
-
-
-
+import {Link} from 'react-router-dom'
+import CardsLogic from './components/gameLogic'
 
 class App extends Component {
   render() {
     return ( 
       <Router>
-        <Switch>
-          <Route exactpath="/" component={CardsLogic} />
-        </Switch>
+      <div>
+      <Route exact path="/" component={Home} />
+      <Route path="/game" component={CardsLogic}/>
+      </div>
+       
       </Router>
+
     )
   }
 }

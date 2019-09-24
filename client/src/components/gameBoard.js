@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 
 class gameBoard extends Component {
 
@@ -16,6 +17,7 @@ class gameBoard extends Component {
       }
     
       render() {
+        
         let tbody = [];
         for (let i = 0; i < 10; i++) {
           let cells = [];
@@ -51,6 +53,7 @@ class gameBoard extends Component {
               <tbody>{tbody}</tbody>
             </table>
             {winner}
+            <Link to="/">Home</Link>
           </div>
         );
       }
