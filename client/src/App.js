@@ -47,13 +47,12 @@ toggleAddUser = () => {
         <br/>
         <br/>
         <br/>
-        {/* <CardsLogic /> */}
         { this.state.isAddUserActive ? <AddUserForm/> : null }
         Ryan
-<CardsLogic gameID="test" playerID="0" />
-Allison
-<CardsLogic gameID="test"  playerID="1" />
-      </div>
+        <CardsLogic gameID="test" playerID="0" />
+        Allison
+        <CardsLogic gameID="test"  playerID="1" />
+        </div>
     )
   }
 }

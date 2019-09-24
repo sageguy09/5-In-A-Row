@@ -1,15 +1,5 @@
 import React, { Component } from 'react';
-//import { users } from './users';
 
-
-// const userOption = (selectedUserId) => ({userName, _id}) => (
-//     <option value = {_id} select={selectedUserId === _id}>{userName}</option>
-// )
-// const usersDropDown = (users, selectedUserId, onChange) => (
-//     <select name="userId" onChange={onChange} >
-//         {users.map(userOption(selectedUserId))}
-//     </select>
-//     )
 class gameCreate extends React.Component {
 
     state = 
