@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 
 class gameBoard extends Component {
 
@@ -16,6 +17,7 @@ class gameBoard extends Component {
       }
     
       render() {
+        
         let tbody = [];
         for (let i = 0; i < 10; i++) {
           let cells = [];
@@ -39,7 +41,7 @@ class gameBoard extends Component {
         if (this.props.ctx.gameover) {
           winner =
             this.props.ctx.gameover.winner !== undefined ? (
-              <div id="winner">Winner: {this.props.ctx.gameover.winner}</div>
+              <div id="winner"><h3 align="center">Winner: {this.props.ctx.gameover.winner}</h3></div>
             ) : (
                 <div id="winner">Draw!</div>
               );
@@ -47,10 +49,12 @@ class gameBoard extends Component {
         
         return (
           <div>
-            <table id="board">
+            <h1 align="center">Five in a row</h1>
+            <table id="board" align="center">
               <tbody>{tbody}</tbody>
             </table>
             {winner}
+            <Link to="/">Home</Link>
           </div>
         );
       }
