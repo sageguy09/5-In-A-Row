@@ -10,6 +10,7 @@ const messagesApi = require('../models/messages.js')
 const gameApi = require('../models/games.js')
 const deckApi = require('../models/decks.js')
 const cardsApi = require('../models/cards.js')
+const colorsApi = require('../models/spaceColors.js')
 /* Step 3 
  * Routers
  */
@@ -111,6 +112,46 @@ gameRouter.post('/deck/:gameId', (req,res) => {
     res.send(newDeck)
   })
 })
+
+
+
+///////////////Colors handlers///////////////
+//get all colors
+gameRouter.get('/colors', (req, res) => {
+  colorsApi.getAllColors().then(colors => {
+      res.send(colors)
+  })
+})
+//get single message
+gameRouter.get('/colors/:colorId', (req, res) => {
+  colorsApi.getSingleColor(req.params.colorId).then(message => {
+      res.send(message)
+  })
+})
+
+//add color to collection 
+gameRouter.post('/colors/addColor', (req, res) => {
+  colorsApi.addColor(req.body).then(newColor => {
+  res.send(newColor)
+  })
+})
+
+//update a color
+gameRouter.put('/colors/:colorId', (req,res) => {
+  colorsApi.updateColor(req.params.colorId, req.body).then(color => {
+      res.send(color)
+  })
+})
+//delete a color
+gameRouter.delete('/colors/:colorId', (req, res) => {
+  colorsApi.deleteColor(req.params.colorId).then(deleteColor => {
+      res.send(deletedColor)
+  })
+})
+
+
+
+
 
 
 
