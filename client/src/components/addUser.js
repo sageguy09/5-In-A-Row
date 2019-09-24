@@ -1,5 +1,5 @@
 import React  from 'react';
-
+import { Redirect } from 'react-router-dom'
 export default class addUserForm extends React.Component {
     state = 
         { newUser: 
@@ -9,7 +9,8 @@ export default class addUserForm extends React.Component {
                 email: "",
                 location: ""
                 //games: [{gameID: "5d83ea5a0fb61640b1698a7c"}]  
-                }
+                },
+                redirect: false
         }
     handleTextInput = (evnt) => {
         //1. copy from state
@@ -26,6 +27,7 @@ export default class addUserForm extends React.Component {
         evnt.preventDefault();
         console.log(this.state.newUser)
         this.addNewUser(this.state.newUser)
+        this.setState({redirect: true})
       }
 
       addNewUser = (newUser) => {
@@ -39,6 +41,9 @@ export default class addUserForm extends React.Component {
         }
 
     render()  {
+        if (this.state.redirect) {
+            return (<Redirect to="/"/>)
+        }
         return (
         <div>
         <h1>Add User</h1>

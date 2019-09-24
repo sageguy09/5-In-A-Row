@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddUserForm from './AddUser'
 import {Link} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class gameCreate extends React.Component {
 
@@ -9,7 +10,8 @@ class gameCreate extends React.Component {
             {gameName: "",
             player_0: "",
             player_1: ""
-            }
+            },
+            redirect: false
     }
 handleTextInput = (evnt) => {
     //1. copy from state
@@ -26,6 +28,7 @@ handleTextInput = (evnt) => {
     evnt.preventDefault();
     console.log(this.state.newGame)
     this.addNewGame(this.state.newGame)
+    this.setState({redirect: true})
   }
 
   addNewGame = (newGame) => {
@@ -46,6 +49,9 @@ handleTextInput = (evnt) => {
     // }
 
     render()  {
+        if (this.state.redirect) {
+            return (<Redirect to="/game"/>)
+        }
         return (
         <div>
             <h1>Create Game</h1>
