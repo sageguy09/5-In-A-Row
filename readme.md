@@ -58,6 +58,7 @@ This equates to that player needing to keep now dead card '99' in their hand for
 
 ![Initial ERD Diagram](https://i.imgur.com/B3bNxY7.jpg)
 ![Create Game Wireframe](https://i.imgur.com/Hy7FGEz.jpg?1)
+![Main Page Wireframe](https://i.imgur.com/rZHdHCY.jpg)
 
 
 ### credits
