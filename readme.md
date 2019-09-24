@@ -1,10 +1,13 @@
 ## SEI Project 3
 ---
 
-### prototype
-(playable prototype)[https://shrouded-beach-62784.herokuapp.com]
-### credits
-react game-board engine and initial gameboard and click cells logic from Nicolo Davis' over at (boardgame.io)[https://boardgame.io]
+### Deployed Application
+(Link to Application on Heroku)[https://shrouded-beach-62784.herokuapp.com]
+
+### Project Planning Board
+
+(Link to GitKraken Project)[https://app.gitkraken.com/glo/board/XX-h3biuYQAP_SwN]
+
 
 ### 5 in a Row Web App
 
@@ -48,3 +51,14 @@ This equates to that player needing to keep now dead card '99' in their hand for
 **Lower cards are much more valuable and should be saved for blocking attempts made on lower ranges of numbers**
 
 **'0' is considered the most valuable card in the game, since it can be played on any space on the board**
+
+
+
+### ERD and Wireframing
+
+![Initial ERD Diagram](https://i.imgur.com/B3bNxY7.jpg)
+![Create Game Wireframe](https://i.imgur.com/Hy7FGEz.jpg?1)
+
+
+### credits
+react game-board engine and initial gameboard and click cells logic from Nicolo Davis' over at (boardgame.io)[https://boardgame.io]
