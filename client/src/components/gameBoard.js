@@ -41,7 +41,7 @@ class gameBoard extends Component {
         if (this.props.ctx.gameover) {
           winner =
             this.props.ctx.gameover.winner !== undefined ? (
-              <div id="winner">Winner: {this.props.ctx.gameover.winner}</div>
+              <div id="winner"><h3 align="center">Winner: {this.props.ctx.gameover.winner}</h3></div>
             ) : (
                 <div id="winner">Draw!</div>
               );
@@ -49,6 +49,7 @@ class gameBoard extends Component {
         
         return (
           <div>
+            <h1 align="center">Five in a row</h1>
             <table id="board" align="center">
               <tbody>{tbody}</tbody>
             </table>
