@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddUserForm from './AddUser'
+import {Link} from 'react-router-dom'
 
 class gameCreate extends React.Component {
 
@@ -89,7 +90,7 @@ handleTextInput = (evnt) => {
             <AddUserForm/>
             {/* <button onClick={this.props.toggleAddUser} >Add a player to the database</button> */}
             <br />
-            
+            <Link to="/game">Go to gameboard</Link>
         </div>
         )
     }
