@@ -49,7 +49,7 @@ class gameBoard extends Component {
         
         return (
           <div>
-            <table id="board">
+            <table id="board" align="center">
               <tbody>{tbody}</tbody>
             </table>
             {winner}

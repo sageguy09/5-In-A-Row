@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import AddUserForm from './AddUser'
+import AddUserForm from './addUser'
 import {Link} from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
+import '../App.css';
 
 class gameCreate extends React.Component {
 
@@ -53,10 +54,10 @@ handleTextInput = (evnt) => {
             return (<Redirect to="/game"/>)
         }
         return (
-        <div>
-            <h1>Create Game</h1>
+        <div class="container">
+            <h1 align="center">Create Game</h1>
 
-            <form  onSubmit={this.handleSubmit}>
+            <form class="myForm" onSubmit={this.handleSubmit}>
                 Game Name: <input type="text"onChange={this.handleTextInput} name="gameName"></input>
                 <br/>
             Select Player 1: 
@@ -90,13 +91,13 @@ handleTextInput = (evnt) => {
                 ))
                 }
             </select>
-            <input type="submit"  value="Create Game" />
+            <input class="myFormSubmit" type="submit"  value="Create Game" />
             </form>
             <br/>
             <AddUserForm/>
             {/* <button onClick={this.props.toggleAddUser} >Add a player to the database</button> */}
             <br />
-            <Link to="/game">Go to gameboard</Link>
+            <Link to="/game" >Go to gameboard</Link>
         </div>
         )
     }

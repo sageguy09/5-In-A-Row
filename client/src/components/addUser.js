@@ -46,8 +46,8 @@ export default class addUserForm extends React.Component {
         }
         return (
         <div>
-        <h1>Add User</h1>
-            <form onSubmit={this.handleSubmit}>
+        <h1 align="center">Add User</h1>
+            <form class="myForm" onSubmit={this.handleSubmit}>
 
                 <input type="text" name="userName"
                 onChange={this.handleTextInput} placeholder="Enter A UserName"/>
@@ -64,7 +64,7 @@ export default class addUserForm extends React.Component {
                 <input type="text" name="location"
                 onChange={this.handleTextInput} placeholder="City Name"/>
         
-                <input type="submit" value="Add User" />
+                <input class="myFormSubmit" type="submit" value="Add User" />
             </form>
         </div>
         )

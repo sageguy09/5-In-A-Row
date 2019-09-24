@@ -35,6 +35,7 @@
 #board {
   border-collapse: collapse;
   font-family: monospace;
+  align-content: center
 }
 
 #winner {
@@ -62,4 +63,78 @@ td.active {
 
 td.active:hover {
   background: #eeffff;
+}
+/* 
+.formAddEdit,  input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px ;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.formAddEdit,  input[list=players], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.formAddEdit, form{
+  width: 80%;
+  background-color: #3E766B;
+}
+
+.formAddEdit, input[type=submit] {
+  width: 50%;
+  background-color: #A1BC91;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid slategray;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formAddEdit, input[type=submit]:hover {
+  background-color: #3E766B;
+}
+
+.formAddEdit p {
+  background-color: #3E766B
+} */
+.myForm {
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+  border-radius: 3px;
+  padding: 1em;
+  margin: 4em;
+}
+
+.myForm input,
+.myForm select {
+  flex: 6; 
+  padding: .5em;
+  margin-bottom: 1em;
+}
+.myFormSubmit {
+ padding: 1em; 
+  background: rgb(90, 86, 86);
+  color: white;
+  border: 0;
+}
+.myForm fieldset {
+   border: 0; 
+}
+
+
+body {
+  font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+  background: rgb(18, 90, 88);
+  color: rgb(8, 7, 7);
+  padding: 50px 0;
 }
