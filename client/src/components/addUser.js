@@ -52,14 +52,8 @@ export default class addUserForm extends React.Component {
                 <input type="text" name="userName"
                 onChange={this.handleTextInput} placeholder="Enter A UserName"/>
 
-                <input type="text" name="password"
-                onChange={this.handleTextInput} placeholder="create password"/>
-
                 <input type="text" name="firstName"
                 onChange={this.handleTextInput} placeholder="First Name"/>
-
-                <input type="email" name="email"
-                onChange={this.handleTextInput} placeholder="email address"/>
 
                 <input type="text" name="location"
                 onChange={this.handleTextInput} placeholder="City Name"/>

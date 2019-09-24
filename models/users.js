@@ -13,17 +13,9 @@ const usersSchema = new mongoose.Schema({
     type: String,
     default: "testuser"
   },
-  password: {
-    type: String,
-    default: "testpass"
-  },
   firstName: {
     type: String,
     default: "testFirst"
-  },
-  email: {
-    type: String,
-    default: "test@domain.com"
   },
   location: {
     type: String,
