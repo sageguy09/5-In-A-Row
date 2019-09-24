@@ -6,7 +6,7 @@ const express = require('express')
  * Import the api files from the models
  */
 const gameLogApi = require('../models/gamelogs.js')
-const messagesApi = require('../models/messages.js')
+//const messagesApi = require('../models/messages.js')
 const gameApi = require('../models/games.js')
 const deckApi = require('../models/decks.js')
 const cardsApi = require('../models/cards.js')
@@ -154,7 +154,7 @@ gameRouter.delete('/colors/:colorId', (req, res) => {
 
 
 
-
+/*
 ///////////////messages handlers///////////////
 //get all messages
 gameRouter.get('/messages', (req, res) => {
@@ -222,7 +222,7 @@ gameRouter.delete('/logmsg/:logMsgId', (req, res) => {
       res.send(deletedLogMsg)
   })
 })
-
+*/
 
 /* Step 6
  * Export routers

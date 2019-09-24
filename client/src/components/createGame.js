@@ -59,6 +59,13 @@ handleTextInput = (evnt) => {
                 ))
                 }
             </select>
+            Colors: <select name="colorName">
+                <option value="none" selected disabled hidden>Select a Color</option>
+                {this.props.allColors.map(color => (
+                    <option value={color.colorCode}>{color.colorName}</option>
+                ))
+                }
+            </select>
             <br/>
             Select Player 2:
             <select onChange={this.handleTextInput} name="player_1">
@@ -68,11 +75,19 @@ handleTextInput = (evnt) => {
                 ))
                 }
             </select>
+            Colors: <select name="colorName">
+                <option value="none" selected disabled hidden>Select a Color</option>
+                {this.props.allColors.map(color => (
+                    <option value={color.colorCode}>{color.colorName}</option>
+                ))
+                }
+            </select>
             <input type="submit"  value="Create Game" />
             </form>
             <br/>
             <button onClick={this.props.toggleAddUser} >Add a player to the database</button>
             <br />
+            
         </div>
         )
     }
