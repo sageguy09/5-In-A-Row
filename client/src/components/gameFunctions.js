@@ -53,6 +53,29 @@ function initialState(ctx, state) {
     }
 }
 
+
+const dealCards = (currentState, ctx) => {
+    let currentPlayer = "player_0"
+    let player1 = currentState[currentPlayer]
+    //let player2 = currentState.player_1
+    //let hand = [8]
+    //let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
+    let hand = ImmutableArray.append(player1.hand, 8)
+    //let boardId="board"
+    // let currentBoard = currentState[boardId]
+    // let deckIndex = currentBoard.deck.length -1;
+    // players.forEach(function (hand){
+    // } ) 
+    let player = {...player1, hand}
+    console.log(getPlayers(currentState, ctx))
+    //console.log(...currentState, [playerId]: player)
+    let state = {...currentState, [currentPlayer]: player }
+    return state
+}
+
+
+
+
 function drawCard(currentState, ctx) {
     let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
     if (currentPlayer.hand.length >= 4){
@@ -118,6 +141,14 @@ function getCurrentPlayer(state, ctx) {
     return {currentPlayer, playerId};
 }
 
+const getPlayers = (state, ctx) => {
+    let players = [];
+     ctx.playOrder.forEach(function (playerId){
+        players.push("player_"+playerId)
+    })
+    return players
+}
+
 const ImmutableArray = {
     append(arr, value) {
         return [...arr, value];
@@ -134,7 +165,7 @@ const ImmutableArray = {
 
 
 //checkCards[]
-export {initialState, drawCard, playCard, clickCell}
+export {initialState, dealCards, drawCard, playCard, clickCell}
 
 
 

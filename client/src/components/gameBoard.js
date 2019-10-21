@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 class gameBoard extends Component {
 
@@ -54,7 +54,7 @@ class gameBoard extends Component {
               <tbody>{tbody}</tbody>
             </table>
             {winner}
-            <Link to="/">Home</Link>
+            {/* <Link to="/">Home</Link> */}
           </div>
         );
       }

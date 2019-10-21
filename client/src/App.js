@@ -36,19 +36,22 @@ class App extends Component {
   }
 
   render() {
-    const CreateGameComponent = () => (<CreateGame 
-      allUsers={this.state.users}
-      allColors={this.state.colors}
-    />)
+    // const CreateGameComponent = () => (<CreateGame 
+    //   allUsers={this.state.users}
+    //   allColors={this.state.colors}
+    // />)
     return ( 
-      <Router>
       <div>
-      {/* <Route exact path="/" component={Home} /> */}
-      <Route exact path="/" render={CreateGameComponent}/>
-      <Route path="/game" component={CardsLogic}/>
+        <CardsLogic />
       </div>
+      // <Router>
+      // <div>
+      // {/* <Route exact path="/" component={Home} /> */}
+      // <Route exact path="/" render={CreateGameComponent}/>
+      // <Route path="/game" component={CardsLogic}/>
+      // </div>
        
-      </Router>
+      // </Router>
 
     )
   }

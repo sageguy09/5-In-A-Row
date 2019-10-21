@@ -1,4 +1,4 @@
-import {initialState, drawCard, playCard} from './gameFunctions'
+import {initialState, drawCard, dealCards, playCard} from './gameFunctions'
 import cardObjs from './cardObjects.json'
 import { isMainThread } from 'worker_threads';
 const mockCtx = {
@@ -31,7 +31,16 @@ let mockState = {
     cards: mockCards
 }
 
+test('dealing a card', () => {
+    let state_1 = initialState(mockCtx, mockState);
+    let state_2 = dealCards(state_1, mockCtx)
 
+    expect(state_1.player_0.hand).toEqual([])
+    console.log(state_2)
+    //console.log(state_2)
+    //expect(state_2.player_0.hand.toEqueal([8]))
+})
+/*
 test('drawing a card', () => {
     let state_One = initialState(mockCtx, mockState);
     let state_Two = drawCard(state_One, mockCtx);
@@ -62,6 +71,7 @@ test('playing a card', () => {
 
 })
 
+*/
 
 
 /*

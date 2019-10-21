@@ -261,7 +261,8 @@ const FiveInARow = Client({
     board: firBoard,
    //multiplayer: {local: true},
     // multiplayer: { server: 'localhost:3000'},
-    //numOfPlayers: 2
+    //numOfPlayers: 2, 
+    debug: true
 });
 
 
