@@ -35,7 +35,7 @@ test('dealing a card', () => {
     let state_1 = initialState(mockCtx, mockState);
     //console.log(state_1)
     let state_2 = dealCards(state_1, mockCtx)
-    //console.log(state_2)
+    console.log(state_2)
     //expect(state_1.board.deck.length).toEqual(10);
     //console.log(state_2)
     //console.log(state_2)

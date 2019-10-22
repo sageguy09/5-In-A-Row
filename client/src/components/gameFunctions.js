@@ -55,13 +55,13 @@ function initialState(ctx, state) {
 
 
 const dealCards = (currentState, ctx) => {
-    let players = ["player_0", "player_1"]
+    //let players = ["player_0", "player_1"]
+    let players = getPlayers(ctx)
     let state
     players.forEach(playerid => {
         for(let j = 0; j < 4; j++){
             let boardId="board"
             let currentBoard = currentState[boardId]
-            let deckIndex = currentBoard.deck.length - 1;
             let playerId = playerid
             let selectedPlayer = currentState[playerid]
             let deck = currentBoard.deck
