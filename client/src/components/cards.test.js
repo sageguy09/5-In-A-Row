@@ -8,17 +8,17 @@ const mockCtx = {
     currentBoard: "1",
     playOrder: ["0", "1"]
 };
-let cardId = 0;
-let mockCards = [];
-cardObjs.forEach(card => {
-    mockCards.push({
-        id: cardId++,
-        cardObj: card
-    })
-})
+// let cardId = 0;
+// let mockCards = [];
+// cardObjs.forEach(card => {
+//     mockCards.push({
+//         id: cardId++,
+//         cardObj: card
+//     })
+// })
 let mockState = {
     board: {
-        deck: [1, 2, 3, 4, 5],
+        deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         burn: []
     },
     player_0: {
@@ -27,18 +27,19 @@ let mockState = {
     player_1: {
         hand: []
     },
-    cells: Array(100).fill(null),
-    cards: mockCards
+    // cells: Array(100).fill(null),
+    // cards: mockCards
 }
 
 test('dealing a card', () => {
     let state_1 = initialState(mockCtx, mockState);
+    //console.log(state_1)
     let state_2 = dealCards(state_1, mockCtx)
-
-    expect(state_1.player_0.hand).toEqual([])
-    console.log(state_2)
     //console.log(state_2)
-    //expect(state_2.player_0.hand.toEqueal([8]))
+    //expect(state_1.board.deck.length).toEqual(10);
+    //console.log(state_2)
+    //console.log(state_2)
+    expect(state_2.player_0.hand).toEqual([10,9,8,7])
 })
 /*
 test('drawing a card', () => {

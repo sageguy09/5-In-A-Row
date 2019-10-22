@@ -9,20 +9,20 @@ function initialState(ctx, state) {
     let cardId = 0;
     let cards = [];
 
-    cardObjs.forEach(card => {
-        cards.push({
-            id: cardId++,
-            cardObj: card
-        })
-    })
-    let spaceId = 0;
-    let spaces = []
-    spaceObjs.forEach(space => {
-        spaces.push({
-            id: spaceId++,
-            spaceObj: space
-        })
-    })
+    // cardObjs.forEach(card => {
+    //     cards.push({
+    //         id: cardId++,
+    //         cardObj: card
+    //     })
+    // })
+    // let spaceId = 0;
+    // let spaces = []
+    // spaceObjs.forEach(space => {
+    //     spaces.push({
+    //         id: spaceId++,
+    //         spaceObj: space
+    //     })
+    // })
     return state || {
         board: {
             deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -55,21 +55,27 @@ function initialState(ctx, state) {
 
 
 const dealCards = (currentState, ctx) => {
-    let currentPlayer = "player_0"
-    let player1 = currentState[currentPlayer]
-    //let player2 = currentState.player_1
-    //let hand = [8]
-    //let {currentPlayer, playerId} = getCurrentPlayer(currentState, ctx);
-    let hand = ImmutableArray.append(player1.hand, 8)
-    //let boardId="board"
-    // let currentBoard = currentState[boardId]
-    // let deckIndex = currentBoard.deck.length -1;
-    // players.forEach(function (hand){
-    // } ) 
-    let player = {...player1, hand}
-    console.log(getPlayers(currentState, ctx))
-    //console.log(...currentState, [playerId]: player)
-    let state = {...currentState, [currentPlayer]: player }
+    let players = ["player_0", "player_1"]
+    let state
+    players.forEach(playerid => {
+        for(let j = 0; j < 4; j++){
+            let boardId="board"
+            let currentBoard = currentState[boardId]
+            let deckIndex = currentBoard.deck.length - 1;
+            let playerId = playerid
+            let selectedPlayer = currentState[playerid]
+            let deck = currentBoard.deck
+            let hand = selectedPlayer.hand
+            hand.push(deck.pop());
+            let player = {...selectedPlayer, hand};
+            
+            let board = {...currentBoard, deck};
+            
+            state = {...currentState, [playerId]: player, [boardId]: board}
+            
+            //return state
+        }
+    })
     return state
 }
 
@@ -141,7 +147,7 @@ function getCurrentPlayer(state, ctx) {
     return {currentPlayer, playerId};
 }
 
-const getPlayers = (state, ctx) => {
+const getPlayers = (ctx) => {
     let players = [];
      ctx.playOrder.forEach(function (playerId){
         players.push("player_"+playerId)
