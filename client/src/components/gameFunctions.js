@@ -68,12 +68,9 @@ const dealCards = (currentState, ctx) => {
             let hand = selectedPlayer.hand
             hand.push(deck.pop());
             let player = {...selectedPlayer, hand};
-            
             let board = {...currentBoard, deck};
-            
             state = {...currentState, [playerId]: player, [boardId]: board}
             
-            //return state
         }
     })
     return state
