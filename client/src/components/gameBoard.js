@@ -16,7 +16,7 @@ class gameBoard extends Component {
   }
 
   playCardById = (id) => {
-    this.props.moves.playCard(id)
+    this.props.moves.playACard(id)
   }
   isActive(id) {
     if (!this.props.isActive) return false;
@@ -82,7 +82,7 @@ class gameBoard extends Component {
         <h3>Current Player: {this.props.ctx.currentPlayer}</h3>
         <div class="playerControls">
           <button onClick={this.drawCard}>Draw Card</button>
-          <button onClick={() => this.props.undo()}>Undo Play</button>
+          {/* <button onClick={() => this.props.undo()}>Undo Play</button> */}
         </div>
         <div class="playerHand">
           {this.props.G.players[this.props.ctx.currentPlayer].hand != undefined ? this.props.G.players[this.props.ctx.currentPlayer].hand.map(this.currentPlayerCards) : null }
