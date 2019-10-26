@@ -16,9 +16,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\" \"cd client && node -r esm server.js\"",
     "start": "node server.js",
-    "postinstall": "cd client && npm i && npm run build && npm install --save boardgame.io"
+    "postinstall": "cd client && npm i && npm run build && npm install --save boardgame.io && npm i esm"
   },
   "author": "Ryan Sage",
   "license": "ISC"
