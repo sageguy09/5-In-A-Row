@@ -13,7 +13,8 @@ const { templateRouter } = require('./controllers/template.js')
 const { gameRouter } = require('./controllers/gameController.js')
 const { userRouter } = require('./controllers/usersController.js')
 
-
+    //"dev": "concurrently \"nodemon server.js\" \"cd client && npm start\" \"cd client && node -r esm server.js\"",
+    //"dev": "concurrently \"nodemon server.js\" \"cd client && npm start\" \"cd client && node -r esm server.js\"",
 /* Step 3
  *
  * Register middleware...
