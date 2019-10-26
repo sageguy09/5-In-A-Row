@@ -1,9 +1,8 @@
 import { Client } from 'boardgame.io/react';
-import { Game, INVALID_MOVE } from 'boardgame.io/core';
-import {initialState, drawCard, playCard, clickCell } from './gameFunctions'
+import { INVALID_MOVE, TurnOrder } from 'boardgame.io/core';
+import {initialState, drawCard, dealCards, playCard, playOnSpace } from './gameFunctions'
 import firBoard from './gameBoard';
 import App from '../App';
-
 
 
 function IsVictory(cells) {
@@ -225,36 +224,44 @@ function IsDraw(cells) {
 }
 
 
-const fir = Game({
+const fir  = {
     setup: initialState, 
-    moves: {
-        drawCard,
-        playCard,
-        clickCell
+    moves: { dealCards },
+    turn: {
+      order: TurnOrder.RESET,
+      stages: {
+        play: {
+          move: {playOnSpace}
+        }
+      }
     },
-    flow: {
-        movesPerTurn: 1,
-        endGameIf: (G, ctx) => {
+    phases: {
+      getCards: {
+        moves: {dealCards},
+        onBegin: dealCards,
+        endIf: (G,ctx) => (G.board.deck.length <= (100 - (ctx.numPlayers*4))),
+        start: true,
+        next: 'playGame',
+      },
+      playGame: {
+        // onBegin: ctx => {ctx.playOrderPos= 0},
+        moves: {drawCard, 
+          playCard: {
+            move: playCard,
+            undoable: true
+          }}
+      }
+    },
+
+    endIf: (G, ctx) => {
             if (IsVictory(G.cells)) {
                 return { winner: ctx.currentPlayer };
             }
             if (IsDraw(G.cells)) {
                 return { draw: true };
             }
-        },
-        //endTurn:false,
-        // phases: {
-        //     //allowedMoves: ['drawCard', 'playCard'],
-        //     draw: {
-        //         allowedMoves: ['drawCard'],
-        //     },
-        //     play: {
-        //         allowedMoves: ['playCard'],
-        //         next: 'end'
-        //     },
-        // }
     }
-});
+};
 
 const FiveInARow = Client({
     game: fir,

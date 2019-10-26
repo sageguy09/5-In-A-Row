@@ -1,6 +1,4 @@
-import cardObjs from './cardObjects.json'
-import spaceObjs from './spaceMapping.json'
-import { INVALID_MOVE } from 'boardgame.io/core'
+
 
 
 
@@ -11,14 +9,10 @@ function initialState(ctx, state) {
     }
     let deck = ctx.random.Shuffle(deckArray)
     return state || {
-        players: {
-            0 : {hand: []},
-            1 : {hand: []}
-          },
         board: {
             //deck: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-            burn: [],
             deck,
+            burn: [],
             boardArray :  [
                 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
                 89, 42, 43, 44, 45, 46, 47, 48, 49, 64,
@@ -32,7 +26,10 @@ function initialState(ctx, state) {
                 81, 80, 79, 78, 77, 76, 75, 74, 73, 72
               ]
         },
-        
+        players: {
+            0 : {hand: []},
+            1 : {hand: []}
+          },
         cells: Array(100).fill(null),
     }
 }
@@ -72,7 +69,6 @@ const drawCard = (currentState, ctx) => {
     //console.log(players)
     let board = {...currentBoard, deck};
     let state = {...currentState,  players: playersu, [boardId]: board}
-    ctx.events.endTurn();
     return(state)
 }
 
@@ -93,7 +89,7 @@ const playCard = (currentState, ctx, cardId) => {
     let board = {...currentBoard, burn};
     let state = {...currentState,  players: playersu, [boardId]: board}
     //set game to play stage for player to play on a space
-    ctx.events.setActivePlayers({player: 'play', moveLimit: 1})
+    //ctx.events.setActivePlayers({player: 'play', moveLimit: 1})
     return (state)
 }
 
@@ -103,10 +99,10 @@ const playOnSpace = (currentState, ctx, id) => {
     }
     //fill cell with 0 or 1 depending the current player.
     currentState.cells[id] = ctx.currentPlayer;
-    ctx.events.endTurn();
     return currentState
-    
-
+    //ctx.events.endTurn();
+    //console.log('post state: '+G.cells[id])
+    //console.log('postCTX: '+{ctx})
 }
 
 const ImmutableArray = {
