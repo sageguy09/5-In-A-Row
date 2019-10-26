@@ -246,7 +246,7 @@ const fir  = {
       playGame: {
         // onBegin: ctx => {ctx.playOrderPos= 0},
         moves: {drawCard, 
-          playACard: {
+          playaCard: {
             move: playCard,
             undoable: true
           }}
